@@ -1,0 +1,27 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: sdkjs-e2e-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/affinity: "cookie"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "600"
+    nginx.ingress.kubernetes.io/session-cookie-name: "JSESSIONID"
+    cert.gardener.cloud/purpose: managed
+spec:
+  tls:
+  - hosts:
+    - cloud-sdk-js.sdktests.shoot.canary.k8s-hana.ondemand.com
+    - "*.e2e.ingress.cloud-sdk-js.sdktests.shoot.canary.k8s-hana.ondemand.com"
+    - connectivitytunnel.ingress.cloud-sdk-js.sdktests.shoot.canary.k8s-hana.ondemand.com
+    secretName: secret-tls
+  rules:
+  - host: "*.e2e.ingress.cloud-sdk-js.sdktests.shoot.canary.k8s-hana.ondemand.com"
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: approuter-svc
+            port:
+              number: 8080

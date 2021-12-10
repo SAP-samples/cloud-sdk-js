@@ -1,0 +1,20 @@
+1. These routes were created with this chart:
+{{- if .Values.ingress.enabled }}
+  {{- if .Values.ingress.shortRoute }}
+  - https://{{ .Values.ingress.shortRoute }}
+  {{- end }}
+  {{- if .Values.ingress.exposedRoute }}
+  - https://{{ .Values.ingress.exposedRoute }}
+  {{- end }}
+  {{- if .Values.ingress.connectivityProxyRoute }}
+  - https://{{ .Values.ingress.connectivityProxyRoute }}
+  {{- end }}
+{{- end }}
+
+Use the following commands to connect to your application from within the cluster:
+
+  export POD_NAME=$(kubectl get pods --namespace {{ .Release.Namespace }} -l "app.kubernetes.io/name=approuter-chart,app.kubernetes.io/instance={{ .Release.Name }}" -o jsonpath="{.items[0].metadata.name}")
+  export CONTAINER_PORT=$(kubectl get pod --namespace {{ .Release.Namespace }} $POD_NAME -o jsonpath="{.spec.containers[0].ports[0].containerPort}")
+  echo "Visit http://127.0.0.1:8080 to use your application"
+  kubectl --namespace {{ .Release.Namespace }} port-forward $POD_NAME 8080:$CONTAINER_PORT
+

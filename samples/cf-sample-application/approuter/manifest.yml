@@ -1,0 +1,13 @@
+applications:
+  - name: approuter-tom
+    routes:
+    - route: approuter-tom-s4sdk.cfapps.sap.hana.ondemand.com
+    memory: 512M
+    buildpack: nodejs_buildpack
+    command: npm run start
+    path: ./approuter.zip
+    services:
+      - xsuaa-tom
+    env:
+      TENANT_HOST_PATTERN: 'approuter-tom-(.*).cfapps.sap.hana.ondemand.com'
+      destinations: '[{"name":"backend", "url":"https://k8s-e2e-app.cfapps.sap.hana.ondemand.com", "forwardAuthToken": true}]'

@@ -1,0 +1,77 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "app-chart.fullname" . }}
+  labels:
+    {{- include "app-chart.labels" . | nindent 4 }}
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      {{- include "app-chart.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "app-chart.selectorLabels" . | nindent 8 }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "app-chart.serviceAccountName" . }}
+      containers:
+        - name: {{ .Chart.Name }}
+          {{- if .Values.image }}
+          image: "{{- .Values.image.repository | default "docker-cloudsdk.docker.repositories.sap.ondemand.com/k8s-e2e-app" }}:{{ .Values.image.tag | default "latest" -}}"
+          {{- else }}
+          image: "docker-cloudsdk.docker.repositories.sap.ondemand.com/k8s-e2e-app:latest"
+          {{ end -}}
+          ports:
+            - containerPort: 3000
+          resources:
+            {{- if .Values.resources }}
+            {{- toYaml .Values.resources | nindent 12 }}
+            {{- else }}
+            requests:
+              memory: "256Mi"
+              cpu: "500m"
+            limits:
+              memory: "512Mi" 
+              cpu: "1000m" 
+            {{- end }}
+          env:
+            - name: CLOUD_DESTINATION
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ include "app-chart.fullname" . }}-config
+                  key: cloud_destination
+            - name: ONPREMISE_DESTINATION
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ include "app-chart.fullname" . }}-config
+                  key: onpremise_destination
+            - name: PRINCIPAL_PROPAGATION_DESTINATION
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ include "app-chart.fullname" . }}-config
+                  key: principal_propagation_destination
+          volumeMounts:
+            - name: destination-volume
+              mountPath: {{ printf "/etc/secrets/sapcp/destination/%s" .Values.destinationBinding | quote }}
+              readOnly: true
+            - name: xsuaa-volume
+              mountPath: {{ printf "/etc/secrets/sapcp/xsuaa/%s" .Values.xsuaaBinding | quote }}
+              readOnly: true
+            - name: connectivity-volume
+              mountPath: {{ printf "/etc/secrets/sapcp/connectivity/%s" .Values.connectivityBinding | quote }}
+              readOnly: true
+      volumes:
+        - name: destination-volume
+          secret:
+            secretName: {{ .Values.destinationBinding | quote }}
+        - name: xsuaa-volume
+          secret:
+            secretName: {{ .Values.xsuaaBinding | quote }}
+        - name: connectivity-volume
+          secret:
+            secretName: {{ .Values.connectivityBinding | quote }}

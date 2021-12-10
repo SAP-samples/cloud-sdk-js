@@ -1,0 +1,11 @@
+{
+  "name": "approuter",
+  "dependencies": {
+    "@sap/approuter": "10.6.1",
+    "package.json": "^2.0.1"
+  },
+  "scripts": {
+    "start": "node node_modules/@sap/approuter/approuter.js",
+    "deploy:docker": "docker build -t docker-cloudsdk.docker.repositories.sap.ondemand.com/k8s-approuter:latest . && docker push docker-cloudsdk.docker.repositories.sap.ondemand.com/k8s-approuter:latest"
+  }
+}
