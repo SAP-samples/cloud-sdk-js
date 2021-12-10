@@ -1,0 +1,32 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: '/samples/cf-sample-application'
+    schedule:
+      interval: daily
+      time: '11:05'
+      timezone: 'Europe/Berlin'
+    open-pull-requests-limit: 10
+
+  - package-ecosystem: npm
+    directory: '/samples/k8s-sample-application'
+    schedule:
+      interval: daily
+      time: '11:05'
+      timezone: 'Europe/Berlin'
+    allowed_updates:
+      - match:
+          update_type: 'security'
+    open-pull-requests-limit: 10
+  
+  - package-ecosystem: npm
+    target-branch: cloud-foundry
+    directory: '/samples/helm-sample-application'
+    schedule:
+      interval: daily
+      time: '11:05'
+      timezone: 'Europe/Berlin'
+    allowed_updates:
+      - match:
+          update_type: 'security'
+    open-pull-requests-limit: 10
