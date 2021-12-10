@@ -8,7 +8,7 @@ updates:
       timezone: 'Europe/Berlin'
     allowed_updates:
       - match:
-        update_type: 'security'
+          update_type: 'security'
     open-pull-requests-limit: 10
 
   - package-ecosystem: npm
@@ -19,7 +19,7 @@ updates:
       timezone: 'Europe/Berlin'
     allowed_updates:
       - match:
-        update_type: 'security'
+          update_type: 'security'
     open-pull-requests-limit: 10
   
   - package-ecosystem: npm
@@ -31,5 +31,5 @@ updates:
       timezone: 'Europe/Berlin'
     allowed_updates:
       - match:
-        update_type: 'security'
+          update_type: 'security'
     open-pull-requests-limit: 10
