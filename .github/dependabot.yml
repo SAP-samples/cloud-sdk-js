@@ -7,9 +7,6 @@ updates:
       time: '11:05'
       timezone: 'Europe/Berlin'
     open-pull-requests-limit: 10
-    allowed_updates:
-      - match:
-          update_type: 'security'
 
   - package-ecosystem: npm
     directory: '/samples/k8s-sample-application'
@@ -18,9 +15,6 @@ updates:
       time: '11:05'
       timezone: 'Europe/Berlin'
     open-pull-requests-limit: 10
-    allowed_updates:
-      - match:
-          update_type: 'security'
   
   - package-ecosystem: npm
     target-branch: cloud-foundry
@@ -30,6 +24,3 @@ updates:
       time: '11:05'
       timezone: 'Europe/Berlin'
     open-pull-requests-limit: 10
-    allowed_updates:
-      - match:
-          update_type: 'security'
