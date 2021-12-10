@@ -4,7 +4,7 @@ updates:
     directory: '/samples/cf-sample-application'
     schedule:
       interval: daily
-      time: '11:05'
+      time: '11:25'
       timezone: 'Europe/Berlin'
     open-pull-requests-limit: 10
 
@@ -12,7 +12,7 @@ updates:
     directory: '/samples/k8s-sample-application'
     schedule:
       interval: daily
-      time: '11:05'
+      time: '11:25'
       timezone: 'Europe/Berlin'
     open-pull-requests-limit: 10
   
@@ -21,6 +21,6 @@ updates:
     directory: '/samples/helm-sample-application'
     schedule:
       interval: daily
-      time: '11:05'
+      time: '11:25'
       timezone: 'Europe/Berlin'
     open-pull-requests-limit: 10
