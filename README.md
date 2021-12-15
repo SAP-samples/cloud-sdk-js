@@ -1,4 +1,4 @@
-<img src="logo.png" width="50%">
+<img src="logo.png" width="25%">
 
 # SAP Cloud SDK  Samples
 
