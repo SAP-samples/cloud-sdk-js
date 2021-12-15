@@ -1,4 +1,4 @@
-<img src="logo-samples.png" alt="SAP Cloud SDK for JavaScript Logo" height="122.92" width="226.773"/>
+<img src="logo.png">
 
 # SAP Cloud SDK  Samples
 
