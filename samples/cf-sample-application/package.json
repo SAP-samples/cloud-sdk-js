@@ -34,7 +34,7 @@
     "@sap-cloud-sdk/core": "^1.48.1",
     "@sap/cloud-sdk-vdm-business-partner-service": "^1.27.0",
     "@sap/xssec": "^3.2.5",
-    "passport": "^0.4.1",
+    "passport": "^0.5.2",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^6.6.3"
