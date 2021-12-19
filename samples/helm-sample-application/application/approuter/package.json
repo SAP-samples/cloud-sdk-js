@@ -1,8 +1,8 @@
 {
   "name": "approuter",
   "dependencies": {
-    "@sap/approuter": "10.6.1",
-    "package.json": "^2.0.1"
+    "@sap/approuter": "10.10.2",
+    "package.json": "2.0.1"
   },
   "scripts": {
     "start": "node node_modules/@sap/approuter/approuter.js",
