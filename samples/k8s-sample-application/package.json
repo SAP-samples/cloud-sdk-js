@@ -27,7 +27,7 @@
     "deploy:pipeline": "docker build -t docker-cloudsdk.docker.repositories.sap.ondemand.com/sdkjs-k8s-pipeline:latest ./pipeline && docker push docker-cloudsdk.docker.repositories.sap.ondemand.com/sdkjs-k8s-pipeline:latest"
   },
   "dependencies": {
-    "@nestjs/common": "8.2.3",
+    "@nestjs/common": "8.2.4",
     "@nestjs/core": "8.2.3",
     "@nestjs/platform-express": "8.2.3",
     "@sap-cloud-sdk/core": "1.53.0",
