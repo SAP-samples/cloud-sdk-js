@@ -19,7 +19,7 @@ The minimal requirements are:
 - An IDE or a text editor of your choice
 
 If you want to explore the possibilities beyond local tests you need:
-- Access to a [SAB Business Technoligy Platform]() account
+- Access to a [SAB Business Technology Platform](https://www.sap.com/products/business-technology-platform.html) account
 - Entitlement to use resources like service instance creation and application processing units.
 - Permission to deploy applications and create service instances
 
