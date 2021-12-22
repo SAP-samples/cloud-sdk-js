@@ -7,7 +7,7 @@
 This repository contains code samples showcasing the [SAP Cloud SDK for JavaScript / TypeScript](https://sap.github.io/cloud-sdk/js).
 We plan to increase the number of samples over time. 
 The samples will serve different purposes:
-- There will be simple "Hello World" applications. They will contain complete project with all configuration needed to execute it.
+- There will be simple "Hello World" applications. They will contain a complete project with all configurations needed to execute it.
 - There will be code samples to be used in an existing project. These samples do not work on their own but illustrate how to use the SAP Cloud SDK.
 - There will be solutions to tutorials or training courses. These applications have larger scopes and showcase the business value you can create using the SDK. 
 
