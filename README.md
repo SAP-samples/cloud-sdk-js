@@ -16,7 +16,7 @@ The samples will service different purposes:
 The minimal requirements are:
 - A terminal to execute commands
 - A recent version of node and npm installed e.g. node 14 and npm 6
-- A IDE or a text editor of your choice
+- An IDE or a text editor of your choice
 
 If you want to explore the possibilities beyond local tests you need:
 - Access to a [SAB Business Technoligy Platform]() account
