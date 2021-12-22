@@ -26,7 +26,7 @@ If you want to explore the possibilities beyond local tests you need:
 ## Support
 
 If you find a bug or have questions about the concrete content of this repository [create an issue here](https://github.com/SAP-samples/<repository-name>/issues). 
-If you have a general question about a feature of the SDK [create an issue in the SAP Cloud SDK repository](https://github.com/SAP/cloud-sdk-js/issues) 
+If you have a general question about a feature of the SAP Cloud SDK [create an issue in the SAP Cloud SDK repository](https://github.com/SAP/cloud-sdk-js/issues) 
 
 ## Contributing
 
