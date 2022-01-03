@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sdkjs-e2e-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: sdkjs-e2e
+  template:
+    metadata:
+      labels:
+        app: sdkjs-e2e  
+    spec:          
+      containers: 
+      - name: sdkjs-e2e
+        image: docker-cloudsdk.docker.repositories.sap.ondemand.com/k8s-e2e-app:latest
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "500m"
+          limits:
+            memory: "512Mi" 
+            cpu: "1000m" 
+        ports:
+        - containerPort: 3000
+        volumeMounts:
+          - name: destination-volume
+            mountPath: "/etc/secrets/sapcp/destination/operator-destination-service" 
+            readOnly: true
+          - name: xsuaa-volume
+            mountPath: "/etc/secrets/sapcp/xsuaa/operator-xsuaa-service"
+            readOnly: true
+          - name: connectivity-volume
+            mountPath: "/etc/secrets/sapcp/connectivity/operator-connectivity-service"
+            readOnly: true
+      imagePullSecrets:
+      - name: regcred
+      volumes:
+        - name: destination-volume
+          secret:
+            secretName: operator-destination-service
+        - name: xsuaa-volume
+          secret:
+            secretName: operator-xsuaa-service
+        - name: connectivity-volume
+          secret:
+            secretName: operator-connectivity-service

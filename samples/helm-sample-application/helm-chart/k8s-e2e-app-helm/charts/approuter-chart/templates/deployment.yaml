@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "approuter-chart.fullname" . }}
+  labels:
+    {{- include "approuter-chart.labels" . | nindent 4 }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      {{- include "approuter-chart.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "approuter-chart.selectorLabels" . | nindent 8 }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "approuter-chart.serviceAccountName" . }}
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          ports:
+            - containerPort: 5000
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          env:
+            - name: PORT
+              value: "5000"
+            - name: destinations
+              value: '[{"name":"backend", "url":"http://{{ printf "%s-%s" .Release.Name "app-chart" | trunc 63 | trimSuffix "-" }}-svc:8080/", "forwardAuthToken": true}]'
+            - name: TENANT_HOST_PATTERN
+              value: {{ .Values.config.pattern | quote }}
+          volumeMounts:
+            - name: xsuaa-volume
+              mountPath: {{ printf "/etc/secrets/sapcp/xsuaa/%s" .Values.xsuaaBinding | quote}}
+              readOnly: true
+            - name: approuter-volume
+              mountPath: "/usr/src/app/xs-app.json"
+              subPath: "xs-app.json"
+              readOnly: true
+      volumes:
+        - name: xsuaa-volume
+          secret:
+            secretName: {{ .Values.xsuaaBinding | quote}}
+        - name: approuter-volume
+          configMap:
+            name: {{ include "approuter-chart.fullname" . }}-config
+            items:
+              - key: xs-app.json
+                path: xs-app.json
+
+

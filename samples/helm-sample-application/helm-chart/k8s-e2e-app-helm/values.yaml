@@ -1,0 +1,22 @@
+app-chart:
+  cloudDestination:
+  onPremiseDestination:
+  principalPropagationDestination:
+  destinationBinding:
+  connectivityBinding:
+  xsuaaBinding:
+  imagePullSecrets: 
+  - name: 
+approuter-chart:
+  config:
+    idp:
+    pattern:
+  xsuaaBinding:
+  imagePullSecrets:
+  - name: 
+ingress:
+  enabled: 
+  environment: 
+  shortRoute: 
+  exposedRoute: 
+  connectivityProxyRoute: 

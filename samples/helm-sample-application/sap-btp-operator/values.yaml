@@ -1,0 +1,6 @@
+manager:
+  secret:
+    clientid: <client-id>
+    clientsecret: <client-secret>
+    url: https://service-manager.cfapps.sap.hana.ondemand.com
+    tokenurl: https://s4sdk.authentication.sap.hana.ondemand.com

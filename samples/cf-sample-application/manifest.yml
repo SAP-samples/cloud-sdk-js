@@ -1,0 +1,12 @@
+applications:
+  - name: k8s-e2e-app
+    path: deployment/
+    buildpacks:
+      - nodejs_buildpack
+    memory: 512M
+    instances: 2
+    command: npm run start:prod
+    services:
+      - destination-service
+      - xsuaa-service
+      - connectivity-service

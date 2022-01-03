@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: approuter
+  labels:
+      app: approuter
+spec:
+  replicas: 1
+  selector:
+      matchLabels:
+        app: approuter
+  template:
+    metadata:
+      labels:
+        app: approuter
+    spec:
+      containers:
+      - image: docker-cloudsdk.docker.repositories.sap.ondemand.com/k8s-approuter:latest
+        resources:
+            requests:
+              memory: "256Mi"
+              cpu: "250m"
+            limits:
+              memory: "512Mi" 
+              cpu: "500m"
+        name: approuter
+        volumeMounts:
+          - name: xsuaa-volume
+            mountPath: "/etc/secrets/sapcp/xsuaa/operator-xsuaa-service"
+            readOnly: true
+        env:
+          - name: PORT
+            value: "5000"
+          - name: destinations
+            value: '[{"name":"backend", "url":"http://sdkjs-e2e-svc:8080/", "forwardAuthToken": true}]'
+          - name: TENANT_HOST_PATTERN
+            value: (.*).e2e.ingress.cloud-sdk-js.sdktests.shoot.canary.k8s-hana.ondemand.com
+      imagePullSecrets:
+      - name: regcred
+      volumes:
+        - name: xsuaa-volume
+          secret:
+            secretName: operator-xsuaa-service

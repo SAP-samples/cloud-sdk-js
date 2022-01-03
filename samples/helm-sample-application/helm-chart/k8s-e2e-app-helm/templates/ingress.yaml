@@ -1,0 +1,43 @@
+{{- if .Values.ingress.enabled -}}
+{{- $name := default "approuter-chart" .Values.nameOverride | trunc 63 | trimSuffix "-" -}}
+{{- $fullName := include "k8s-e2e-app-helm.fullname" . -}}
+{{- $svcName := index .Values "approuter-chart" "name" | default (printf "%s-%s-svc" .Release.Name $name) | trunc 63 | trimSuffix "-" | quote -}}
+{{- $svcPort := dig "approuter-chart" "service" "port" 8080 (.Values | merge (dict)) -}}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ $fullName }}-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/affinity: "cookie"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "600"
+    nginx.ingress.kubernetes.io/session-cookie-name: "JSESSIONID"
+    {{- if eq .Values.ingress.environment "gardener" }}
+    cert.gardener.cloud/purpose: "managed"
+    {{- else }}
+    kubernetes.io/ingress.class: "nginx"
+    cert-manager.io/cluster-issuer: {{ .Values.ingress.issuer.name | default "letsencrypt-production" | quote }}
+    {{ end }}
+spec:
+  tls:
+    - hosts:
+      {{- if .Values.ingress.shortRoute }}
+      - {{.Values.ingress.shortRoute | quote }}
+      {{ end -}}
+      - {{ .Values.ingress.exposedRoute | quote }}
+      {{- if .Values.ingress.connectivityProxyRoute }}
+      - {{ .Values.ingress.connectivityProxyRoute | quote }}
+      {{ end -}}
+      secretName: {{ .Values.ingress.secretName | default "tls-secret" | quote }}
+  rules:
+  - host: {{ .Values.ingress.exposedRoute | quote }}
+    http:
+      paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: {{ $svcName }}
+              port:
+                number: {{ $svcPort }}
+
+{{- end }}

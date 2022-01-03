@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "approuter-chart.fullname" . }}-svc
+  labels:
+    {{- include "approuter-chart.labels" . | nindent 4 }}
+spec:
+  ports:
+    - port: 8080
+      targetPort: 5000
+  selector:
+    {{- include "approuter-chart.selectorLabels" . | nindent 4 }}

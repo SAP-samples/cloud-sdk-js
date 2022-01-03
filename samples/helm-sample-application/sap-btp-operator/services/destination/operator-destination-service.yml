@@ -1,0 +1,7 @@
+apiVersion: services.cloud.sap.com/v1alpha1
+kind: ServiceInstance
+metadata:
+    name: operator-destination-service
+spec:
+    serviceOfferingName: destination
+    servicePlanName: lite

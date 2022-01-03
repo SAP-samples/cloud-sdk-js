@@ -1,0 +1,22 @@
+app-chart:
+  cloudDestination: <YOUR-CLOUD-DESTINATION-WITH-BASIC-AUTHENTICATION>
+  onPremiseDestination: <YOUR-ONPREMSIE-DESTINATION-WITH-BASIC-AUTHENTICATION>
+  principalPropagationDestination: <YOUR-ONPREMSIE-DESTINATION-WITH-PRINCIPAL-PROPAGATION>
+  destinationBinding: operator-destination-service
+  connectivityBinding: operator-connectivity-service
+  xsuaaBinding: operator-xsuaa-service
+  imagePullSecrets: 
+  - name: <THE-SECRET-TO-ACCESS-YOUR-DOCKER-REGISTRY>
+approuter-chart:
+  config:
+    idp: <YOUR-IDP>
+    pattern: (.*).e2e.ingress.cloud-sdk-js.sdktests.shoot.canary.k8s-hana.ondemand.com
+  xsuaaBinding: operator-xsuaa-service
+  imagePullSecrets:
+  - name: <THE-SECRET-TO-ACCESS-YOUR-DOCKER-REGISTRY>
+ingress:
+  enabled: true
+  environment: gardener
+  shortRoute: cloud-sdk-js.sdktests.shoot.canary.k8s-hana.ondemand.com
+  exposedRoute: "*.e2e.ingress.cloud-sdk-js.sdktests.shoot.canary.k8s-hana.ondemand.com"
+  connectivityProxyRoute: connectivitytunnel.ingress.cloud-sdk-js.sdktests.shoot.canary.k8s-hana.ondemand.com

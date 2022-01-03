@@ -1,0 +1,16 @@
+{
+  "welcomeFile": "/web-pages/index.html",
+  "routes": [
+    {
+      "source": "/backend-app/(.*)",
+      "target": "$1",
+      "destination": "backend",
+      "identityProvider": "YOUR-IDP"
+    },
+    {
+      "source": "/web-pages/(.*)",
+      "target": "$1",
+      "localDir": "static-resources",
+      "identityProvider": "YOUR-IDP"
+    }]
+}
