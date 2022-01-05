@@ -1,4 +1,5 @@
 <img src="logo.png" width="25%">
+[![REUSE status](https://api.reuse.software/badge/github.com/SAP-samples/cloud-sdk-js)](https://api.reuse.software/info/github.com/SAP-samples/cloud-sdk-js)
 
 # SAP Cloud SDK  Samples
 
