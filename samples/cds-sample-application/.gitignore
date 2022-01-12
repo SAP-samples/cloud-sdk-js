@@ -1,0 +1,52 @@
+# compiled output
+/dist
+/node_modules
+
+# Logs
+logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# OS
+.DS_Store
+
+# Tests
+/coverage
+/.nyc_output
+
+# IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+credentials.json
+/s4hana_pipeline
+/deployment
+.cds_gen.log
+*.db
+connection.properties
+default-*.json
+gen/
+target/
+
+# Ignore .env files
+.env
+cypress.env.json
+
+# Ignore cypress screenshots and videos
+screenshots
+videos
