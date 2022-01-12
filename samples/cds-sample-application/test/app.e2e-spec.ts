@@ -1,7 +1,9 @@
 import { Test, TestingModule } from '@nestjs/testing';
+import nock = require('nock');
 import { INestApplication } from '@nestjs/common';
 import * as request from 'supertest';
 import { AppModule } from './../src/app.module';
+import cds = require('@sap/cds');
 
 describe('AppController (e2e)', () => {
   let app: INestApplication;
@@ -12,14 +14,21 @@ describe('AppController (e2e)', () => {
     }).compile();
 
     app = moduleFixture.createNestApplication();
-  
+    await cds.connect.to('db');
+    await cds
+    .serve('all')
+    .in(app);
     await app.init();
   });
 
-  it('/ (GET)', () => {
+  it('tests service handler implementation', () => {
+    nock(process.env.CLOUD_DESTINATION_URL)
+      .get(/.*/)
+      .reply(200);
+
     return request(app.getHttpServer())
-      .get('/')
+      .get('/bupa/getAll()')
       .expect(200)
-      .expect('Hello World!');
+      .expect({"@odata.context":"$metadata#CapBusinessPartner","value":[]});
   });
 });
