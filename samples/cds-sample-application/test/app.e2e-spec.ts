@@ -1,14 +1,15 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import nock = require('nock');
 import { INestApplication } from '@nestjs/common';
 import * as request from 'supertest';
 import { AppModule } from './../src/app.module';
+import { setTestDestination } from '@sap-cloud-sdk/test-util';
+import nock = require('nock');
 import cds = require('@sap/cds');
 
 describe('AppController (e2e)', () => {
   let app: INestApplication;
 
-  beforeEach(async () => {
+  beforeAll(async () => {
     const moduleFixture: TestingModule = await Test.createTestingModule({
       imports: [AppModule],
     }).compile();
@@ -19,10 +20,16 @@ describe('AppController (e2e)', () => {
     .serve('all')
     .in(app);
     await app.init();
+
+    setTestDestination({ 
+      name: 'myDestinationName',
+      url: 'https://my-destination-url.com',
+      isTestDestination: true
+    });
   });
 
   it('tests service handler implementation', () => {
-    nock(process.env.CLOUD_DESTINATION_URL)
+    nock('https://my-destination-url.com')
       .get(/.*/)
       .reply(200);
 

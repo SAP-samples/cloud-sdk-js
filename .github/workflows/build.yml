@@ -26,8 +26,6 @@ jobs:
           npm install
           npm run ci-build
       - name: e2e Tests
-        env:
-          CLOUD_DESTINATION_URL: https://my-destination-url.com
         run:  |
          cd samples/cds-sample-application
          npm run test:e2e      
