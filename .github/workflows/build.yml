@@ -30,5 +30,4 @@ jobs:
           CLOUD_DESTINATION_URL: https://my-destination-url.com
         run:  |
          cd samples/cds-sample-application
-         npm run test:e2e
-              
+         npm run test:e2e      
