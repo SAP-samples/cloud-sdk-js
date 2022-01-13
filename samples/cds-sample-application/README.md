@@ -9,18 +9,7 @@ The repositories' structure is as following:
 - `/srv` - Contains the CDS rervice definitions and implementations
 - `/db` - Contains CDS Domain Models and database-related stuff
 - `Jenkinsfile` - Contains a Jenkins pipeline
-- `/e2e-tests` - Contains the cypress tests that test all endpoints after deployment
 - `manifest.yml` - Manifest to deploy to SAP BTP Cloud Foundry
-
-If you want to locally trigger the e2e-tests, create a `cypress.env.json` file in the `/e2e-tests` directory containing the credentials for the IdP in the format:
-
-```
-{
-  "user": "username",
-  "password": "password"
-  "url": "url"
-}
-```
 
 ## Requirements
 The minimal requirements are:
@@ -54,4 +43,7 @@ Their name should match the one that is used in the `manifest.yml`, in this case
 - `xsuaa-service`
 
 ### Deploy the Application to SAP BTP Cloud Foundry
-Run `npm run deploy` in the root to deploy the application to SAP BTP Cloud Foundry.
+Run `npm run deploy` in the root to deploy the application to SAP BTP Cloud Foundry. This command will transpile the application from TypeScript to JavaScript using the `ci-build` script, package our deployment using the `ci-package` script and deploy the application using `cf push`.
+
+To run the application locally, run `npm run start:dev`.
+

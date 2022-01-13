@@ -3,9 +3,9 @@ name: build
 on:
   pull_request: ~
   push:
-    branches: [cds-sample-app]
+    branches: [main]
     paths:
-      - 'samples/cds-sample-application'
+      - 'samples/cds-sample-application/**'
 jobs:
   tests:
     runs-on: ${{ matrix.os }}
@@ -20,9 +20,15 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
-      - run: cd sample/cds-sample-application
-      - run: npm install
+      - name: Install dependencies and build package
+        run:  |
+         cd samples/cds-sample-application
+          npm install
+          npm run ci-build
+      - name: e2e Tests
         env:
           CLOUD_DESTINATION_URL: https://my-destination-url.com
-      - run: npm run ci-build
-      - run: npm run test:e2e
+        run:  |
+         cd samples/cds-sample-application
+         npm run test:e2e
+              
