@@ -22,8 +22,6 @@
     "deploy": "npm run ci-build && npm run ci-package && cf push",
     "ci-build": "npm run cds-deploy && npm run cds-build && npm run build",
     "ci-package": "rimraf deployment && mkdir deployment && cp -r dist package.json package-lock.json db srv .cdsrc.json deployment/",
-    "ci-integration-test": "jest --ci --config ./test/jest-e2e.json",
-    "ci-backend-unit-test": "jest --ci",
     "cds-build": "cds build/all",
     "cds-deploy": "cds deploy"
   },

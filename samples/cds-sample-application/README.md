@@ -8,7 +8,6 @@ The repositories' structure is as following:
 - `/src` - Contains the application's source code with a CAP service handler implementation
 - `/srv` - Contains the CDS rervice definitions and implementations
 - `/db` - Contains CDS Domain Models and database-related stuff
-- `Jenkinsfile` - Contains a Jenkins pipeline
 - `manifest.yml` - Manifest to deploy to SAP BTP Cloud Foundry
 
 ## Requirements
@@ -45,5 +44,5 @@ Their name should match the one that is used in the `manifest.yml`, in this case
 ### Deploy the Application to SAP BTP Cloud Foundry
 Run `npm run deploy` in the root to deploy the application to SAP BTP Cloud Foundry. This command will transpile the application from TypeScript to JavaScript using the `ci-build` script, package our deployment using the `ci-package` script and deploy the application using `cf push`.
 
-To run the application locally, run `npm run start:dev`.
+To run the application locally, run `npm run cds-deploy` and then `npm run start:dev`.
 
