@@ -1,0 +1,31 @@
+name: build
+
+on:
+  pull_request: ~
+  push:
+    branches: [main]
+    paths:
+      - 'samples/cds-sample-application/**'
+jobs:
+  tests:
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node-version: [12.x, 14.x]
+    steps:
+      - uses: actions/checkout@v2
+      - run: git fetch --depth=1
+      - uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install dependencies and build package
+        run:  |
+         cd samples/cds-sample-application
+          npm install
+          npm run ci-build
+      - name: e2e Tests
+        run:  |
+         cd samples/cds-sample-application
+         npm run test:e2e      

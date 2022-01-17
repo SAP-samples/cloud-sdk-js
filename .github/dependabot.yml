@@ -1,0 +1,9 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: '/samples/cds-sample-application'
+    schedule:
+      interval: daily
+      time: '01:00'
+      timezone: 'Europe/Berlin'
+    open-pull-requests-limit: 5

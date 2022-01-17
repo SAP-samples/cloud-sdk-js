@@ -1,0 +1,97 @@
+{
+  "name": "cap-e2e-app",
+  "version": "0.0.1",
+  "description": "SAP Cloud SDK for JS - Test application for CAP",
+  "author": "",
+  "private": true,
+  "license": "UNLICENSED",
+  "scripts": {
+    "prebuild": "rimraf dist",
+    "build": "nest build",
+    "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
+    "start": "nest start",
+    "start:dev": "nest start --watch",
+    "start:debug": "nest start --debug --watch",
+    "start:prod": "node dist/main",
+    "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:cov": "jest --coverage",
+    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
+    "test:e2e": "jest --config ./test/jest-e2e.json",
+    "deploy": "npm run ci-build && npm run ci-package && cf push",
+    "ci-build": "npm run cds-deploy && npm run cds-build && npm run build",
+    "ci-package": "rimraf deployment && mkdir deployment && cp -r dist package.json package-lock.json db srv .cdsrc.json deployment/",
+    "cds-build": "cds build/all",
+    "cds-deploy": "cds deploy"
+  },
+  "dependencies": {
+    "@sap/cds": "^5.7.2",
+    "@sap/cds-dk": "^4.7.1",
+    "@sap/cloud-sdk-vdm-business-partner-service": "^1.28.2",
+    "@nestjs/common": "^8.0.0",
+    "@nestjs/core": "^8.0.0",
+    "@nestjs/platform-express": "^8.0.0",
+    "reflect-metadata": "^0.1.13",
+    "rimraf": "^3.0.2",
+    "rxjs": "^7.2.0"
+  },
+  "devDependencies": {
+    "@sap-cloud-sdk/test-util": "^1.53.0",
+    "sqlite3": "^5.0.2",
+    "@nestjs/cli": "^8.0.0",
+    "@nestjs/schematics": "^8.0.0",
+    "@nestjs/testing": "^8.0.0",
+    "@types/express": "^4.17.13",
+    "@types/jest": "27.0.2",
+    "@types/node": "^16.0.0",
+    "@types/supertest": "^2.0.11",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.0.0",
+    "eslint": "^8.0.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "jest": "^27.2.5",
+    "prettier": "^2.3.2",
+    "source-map-support": "^0.5.20",
+    "supertest": "^6.1.3",
+    "ts-jest": "^27.0.3",
+    "ts-loader": "^9.2.3",
+    "ts-node": "^10.0.0",
+    "tsconfig-paths": "^3.10.1",
+    "typescript": "^4.3.5",
+    "nock": "^13.0.11"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "rootDir": "src",
+    "testRegex": ".*\\.spec\\.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "collectCoverageFrom": [
+      "**/*.(t|j)s"
+    ],
+    "coverageDirectory": "../s4hana_pipeline/reports/coverage-reports/backend-unit",
+    "testEnvironment": "node",
+    "reporters": [
+      "default",
+      [
+        "jest-junit",
+        {
+          "suiteName": "backend unit tests",
+          "outputDirectory": "./s4hana_pipeline/reports/backend-unit"
+        }
+      ]
+    ],
+    "collectCoverage": true,
+    "coverageReporters": [
+      "text",
+      "cobertura"
+    ]
+  }
+}
