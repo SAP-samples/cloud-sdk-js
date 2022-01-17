@@ -1,5 +1,10 @@
 import { BusinessPartner } from '@sap/cloud-sdk-vdm-business-partner-service';
 
+/**
+ * Service implementation for the cds service defined in /srv/business-partner-service.cds
+ * Annotation @impl is used in service definition file (.cds) to specify alternative paths (relative to dist/) to load implementations from
+ * Note: The name of service handler should match the cds service name
+ */
 export const BupaService = srv => {
   srv.on('getByKey', async oRequest => {
     const param = oRequest.data.param;
