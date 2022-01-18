@@ -6,6 +6,9 @@ on:
     branches: [main]
     paths:
       - 'samples/cds-sample-application/**'
+permissions:
+    pull-requests: write
+    contents: write
 jobs:
   tests:
     runs-on: ${{ matrix.os }}
@@ -28,4 +31,24 @@ jobs:
       - name: e2e Tests
         run:  |
          cd samples/cds-sample-application
-         npm run test:e2e      
+         npm run test:e2e
+  dependabot:
+      needs: tests
+      runs-on: ubuntu-latest
+      if: ${{ github.actor == 'dependabot[bot]' && github.event_name == 'pull_request' }}
+      steps:
+        - name: Dependabot metadata
+          id: metadata
+          uses: dependabot/fetch-metadata@v1.1.1
+          with:
+            github-token: "${{ secrets.GITHUB_TOKEN }}"
+        - name: Approve a PR
+          run: gh pr review --approve "$PR_URL"
+          env:
+            PR_URL: ${{github.event.pull_request.html_url}}
+            GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+        - name: Enable auto-merge for Dependabot PRs
+          run: gh pr merge --auto --merge "$PR_URL"
+          env:
+            PR_URL: ${{github.event.pull_request.html_url}}
+            GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
