@@ -29,7 +29,7 @@
     "@sap/cds": "^5.7.5",
     "@sap/cds-dk": "^4.7.3",
     "@sap/cloud-sdk-vdm-business-partner-service": "^1.28.2",
-    "@nestjs/common": "^8.0.0",
+    "@nestjs/common": "^8.2.5",
     "@nestjs/core": "^8.2.5",
     "@nestjs/platform-express": "^8.2.5",
     "reflect-metadata": "^0.1.13",
