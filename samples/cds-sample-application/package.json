@@ -37,7 +37,7 @@
     "rxjs": "^7.5.2"
   },
   "devDependencies": {
-    "@sap-cloud-sdk/test-util": "^1.54.0",
+    "@sap-cloud-sdk/test-util": "^2.0.0",
     "sqlite3": "^5.0.2",
     "@nestjs/cli": "^8.2.0",
     "@nestjs/schematics": "^8.0.0",
