@@ -35,7 +35,7 @@ describe('circuit-breaker', () => {
     expect(spy).toHaveBeenCalledTimes(0);
   });
 
-  it('opens the cuircuit after a few failed requests', async () => {
+  it('opens the circuit after a few failed requests', async () => {
     const spy = jest.spyOn(logger, 'warn');
 
     // The circuit breaker was configured to have 80% failure threshold. So 1 / 6 requests failing is enough to open the circuit
