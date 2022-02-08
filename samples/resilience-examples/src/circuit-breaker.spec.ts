@@ -25,7 +25,7 @@ describe('circuit-breaker', () => {
     unmockAllTestDestinations();
   });
 
-  it('does not open the cuircuit breaker for no failed requests.', async () => {
+  it('does not open the circuit breaker for no failed requests.', async () => {
     const spy = jest.spyOn(logger, 'warn');
     await Promise.all(
       numberWorkingRequests.map(() =>
