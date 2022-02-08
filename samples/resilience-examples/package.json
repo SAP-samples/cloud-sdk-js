@@ -6,7 +6,8 @@
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
-    "lint": "eslint \"src/**/*.ts\" --fix",
+    "lint": "eslint \"src/**/*.ts\" && yarn prettier .",
+    "lint:fix": "eslint \"src/**/*.ts\" --fix && yarn prettier . -w",
     "test": "jest"
   },
   "dependencies": {

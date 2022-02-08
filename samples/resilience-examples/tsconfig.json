@@ -7,6 +7,7 @@
     "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
     "moduleResolution": "node",
+    "lib": ["ES2017"],
     "esModuleInterop": true,
     "target": "es2017",
     "sourceMap": true,

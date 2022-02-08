@@ -1,16 +1,31 @@
-import { BusinessPartner, businessPartnerService } from '@sap/cloud-sdk-vdm-business-partner-service';
+import { BusinessPartner } from '@sap/cloud-sdk-vdm-business-partner-service';
 import retry from 'async-retry';
-import { destinationName } from './test-util';
+import { createLogger } from '@sap-cloud-sdk/util';
+import { getAllBusinessPartner } from './test-util';
 
-export function getAllBusinessPartners(top: number): () => Promise<BusinessPartner[]>{
-    return ()=> businessPartnerService().businessPartnerApi.requestBuilder().getAll().top(top).execute({ destinationName });
-}
+const logger = createLogger('retry');
 
 const options = {
-    retries : 2,
-    minTimeout: 500
+  retries: 2,
+  minTimeout: 500
 };
 
-export function getAllBusinessPartnerWithRetry(top: number): Promise<BusinessPartner[]>{
-    return retry(getAllBusinessPartners(top),options);
+// Create a wrapper passing arguments
+export async function getAllBusinessPartnerWithRetry(
+  top: number
+): Promise<BusinessPartner[]> {
+  // Wrap the retry block around the async function.
+  return retry(async bail => {
+    try {
+      const bps = await getAllBusinessPartner(top);
+      return bps;
+    } catch (error) {
+      // Use the bail() method to stop the retries for some cases
+      if (error.cause.response.status === 401) {
+        logger.warn('Request failed with status 401 - no retry necessary.');
+        bail(error);
+      }
+      throw error;
+    }
+  }, options);
 }
