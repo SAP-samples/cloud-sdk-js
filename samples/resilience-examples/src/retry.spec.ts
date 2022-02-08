@@ -4,10 +4,10 @@ import { createLogger } from '@sap-cloud-sdk/util';
 import { getAllBusinessPartnerWithRetry } from './retry';
 import {
   destinationUrl,
-  getAllBusinessPartner,
   mockDestination,
   mockGetAllRequest
 } from './test-util';
+import { getAllBusinessPartner } from './business-partner-request';
 
 describe('retry', () => {
   beforeAll(() => {

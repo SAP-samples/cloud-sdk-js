@@ -1,7 +1,7 @@
 import { BusinessPartner } from '@sap/cloud-sdk-vdm-business-partner-service';
 import CircuitBreaker from 'opossum';
 import { createLogger } from '@sap-cloud-sdk/util';
-import { getAllBusinessPartner } from './test-util';
+import { getAllBusinessPartner } from './business-partner-request';
 
 const logger = createLogger('circuit-breaker');
 
