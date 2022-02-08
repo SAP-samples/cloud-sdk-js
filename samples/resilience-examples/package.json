@@ -1,0 +1,56 @@
+{
+  "name": "resilience-samples",
+  "version": "0.0.1",
+  "description": "SAP Cloud SDK for JS - Examples on Resilience",
+  "author": "Frank Essenberger",
+  "private": true,
+  "license": "UNLICENSED",
+  "scripts": {
+    "lint": "eslint \"src/**/*.ts\" --fix",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@sap/cloud-sdk-vdm-business-partner-service": "^2.0.0",
+    "@sap-cloud-sdk/util": "^2.0.0",
+    "@types/opossum": "^6.2.0",
+    "opossum": "^6.3.0",
+    "@types/async-retry": "^1.4.3",
+    "async-retry": "^1.3.3"
+  },
+  "devDependencies": {
+    "nock": "^13.2.4",
+    "@sap-cloud-sdk/test-util": "^2.0.0",
+    "@sap-cloud-sdk/eslint-config": "^2.0.0",
+    "@typescript-eslint/eslint-plugin": "^4.15.1",
+    "@typescript-eslint/parser": "^4.15.1",
+    "@types/jest": "^27.4.0",
+    "jest": "27.4.7",
+    "prettier": "2.5.1",
+    "eslint": "^7.32.0",
+    "eslint-plugin-header": "^3.1.1",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-prettier": "^3.1.3",
+    "eslint-plugin-unused-imports": "^1.1.0",
+    "ts-jest": "27.1.2",
+    "ts-loader": "9.2.6",
+    "ts-node": "10.4.0",
+    "typescript": "4.5.4"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "rootDir": "src",
+    "testRegex": ".*\\.spec\\.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "collectCoverageFrom": [
+      "**/*.(t|j)s"
+    ],
+    "coverageDirectory": "../coverage",
+    "testEnvironment": "node"
+  }
+}
