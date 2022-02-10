@@ -23,15 +23,25 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
-      - name: Install dependencies and build package
+      - name: CDS Samples - Install Dependencies and Build Package
         run:  |
          cd samples/cds-sample-application
           npm install
           npm run ci-build
-      - name: e2e Tests
+      - name: CDS Samples - Tests
         run:  |
          cd samples/cds-sample-application
-         npm run test:e2e
+          npm run test:e2e
+      - name: Resilience Examples - Install Dependencies
+        run:  |
+         cd samples/resilience-examples
+          npm install
+      - name: Resilience Examples - Tests
+        run:  |
+         cd samples/resilience-examples
+          npm run test
+
+
   dependabot:
       needs: tests
       runs-on: ubuntu-latest
