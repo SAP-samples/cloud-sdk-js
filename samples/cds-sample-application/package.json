@@ -34,7 +34,7 @@
     "@nestjs/platform-express": "^8.2.6",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
-    "rxjs": "^7.5.3"
+    "rxjs": "^7.5.4"
   },
   "devDependencies": {
     "@sap-cloud-sdk/test-util": "^2.0.0",
