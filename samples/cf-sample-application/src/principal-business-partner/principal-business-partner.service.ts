@@ -1,12 +1,17 @@
 import { Injectable } from '@nestjs/common';
-import { BusinessPartner } from '@sap/cloud-sdk-vdm-business-partner-service';
-import { retrieveJwt } from '@sap-cloud-sdk/core';
+import {
+  BusinessPartner,
+  businessPartnerService,
+} from '@sap/cloud-sdk-vdm-business-partner-service';
+import { retrieveJwt } from '@sap-cloud-sdk/connectivity';
 import { Request } from 'express';
+const { businessPartnerApi } = businessPartnerService();
 
 @Injectable()
 export class PrincipalBusinessPartnerService {
   async getFiveBusinessPartners(request: Request): Promise<BusinessPartner[]> {
-    return BusinessPartner.requestBuilder()
+    return businessPartnerApi
+      .requestBuilder()
       .getAll()
       .top(5)
       .execute({
