@@ -30,7 +30,7 @@
     "@nestjs/common": "8.4.3",
     "@nestjs/core": "8.4.3",
     "@nestjs/platform-express": "8.4.3",
-    "@sap-cloud-sdk/connectivity": "^2.1.0",
+    "@sap-cloud-sdk/connectivity": "2.2.0",
     "@sap/cloud-sdk-vdm-business-partner-service": "^2.0.0",
     "@sap/xsenv": "3.2.1",
     "@sap/xssec": "3.2.13",
