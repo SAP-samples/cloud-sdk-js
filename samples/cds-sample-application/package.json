@@ -30,7 +30,7 @@
     "@nestjs/core": "^8.4.4",
     "@nestjs/platform-express": "^8.4.4",
     "@sap/cds": "^5.9.2",
-    "@sap/cds-dk": "^4.9.1",
+    "@sap/cds-dk": "^4.9.2",
     "@sap/cloud-sdk-vdm-business-partner-service": "^2.0.0",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
