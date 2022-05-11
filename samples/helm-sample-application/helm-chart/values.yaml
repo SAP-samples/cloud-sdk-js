@@ -10,13 +10,21 @@ app-chart:
 approuter-chart:
   config:
     idp: <YOUR-IDP>
-    pattern: (.*).e2e.ingress.cloud-sdk-js.sdktests.shoot.canary.k8s-hana.ondemand.com
+    # The TENANT_HOST_PATTERN your approuter will use to point at the right subaccount
+    # Example: (.*).e2e.ingress.cloud-sdk-js.sdktests.shoot.canary.k8s-hana.ondemand.com
+    pattern: (.*).<YOUR-EXPOSED-ROUTE>
   xsuaaBinding: operator-xsuaa-service
   imagePullSecrets:
   - name: <THE-SECRET-TO-ACCESS-YOUR-DOCKER-REGISTRY>
 ingress:
   enabled: true
   environment: gardener
-  shortRoute: cloud-sdk-js.sdktests.shoot.canary.k8s-hana.ondemand.com
-  exposedRoute: "*.e2e.ingress.cloud-sdk-js.sdktests.shoot.canary.k8s-hana.ondemand.com"
-  connectivityProxyRoute: connectivitytunnel.ingress.cloud-sdk-js.sdktests.shoot.canary.k8s-hana.ondemand.com
+  # Your domain
+  # Example:  cloud-sdk-js.sdktests.shoot.canary.k8s-hana.ondemand.com
+  shortRoute: <YOUR-DOMAIN>
+  # The route your approuter will use, with a wildcard to enable multi-tenancy
+  # Example: "*.e2e.ingress.cloud-sdk-js.sdktests.shoot.canary.k8s-hana.ondemand.com"
+  exposedRoute:  "*.<YOUR-APPROUTER-ROUTE>.<YOUR-DOMAIN>"
+  # The route your connectivity proxy will use to create a tunnel to your cloud connector
+  # Example: connectivitytunnel.ingress.cloud-sdk-js.sdktests.shoot.canary.k8s-hana.ondemand.com
+  connectivityProxyRoute: <YOUR-CONNECTIVITY-TUNNEL-ROUTE>.<YOUR-DOMAIN>

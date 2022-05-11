@@ -4,7 +4,8 @@ import { JWTStrategy } from '@sap/xssec';
 import { getServices } from '@sap/xsenv';
 import * as passport from 'passport';
 
-const xsuaa = getServices({ xsuaa: { name: 'YOUR-XSUAA' } }).xsuaa;
+// Use the same xsuaa across the entire application
+const xsuaa = getServices({ xsuaa: { name: '<REPLACE-ME>-xsuaa-service' } }).xsuaa;
 passport.use(new JWTStrategy(xsuaa));
 
 async function bootstrap() {

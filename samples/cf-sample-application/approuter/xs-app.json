@@ -5,12 +5,12 @@
       "source": "/backend-app/(.*)",
       "target": "$1",
       "destination": "backend",
-      "identityProvider": "YOUR-IDP"
+      "identityProvider": "<REPLACE-ME>"
     },
     {
       "source": "/web-pages/(.*)",
       "target": "$1",
       "localDir": "static-resources",
-      "identityProvider": "YOUR-IDP"
+      "identityProvider": "<REPLACE-ME>"
     }]
 }

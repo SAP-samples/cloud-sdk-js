@@ -21,6 +21,7 @@ If you want to locally trigger the e2e-tests, create a `cypress.env.json` file i
   "url": "url"
 }
 ```
+
 ## Requirements
 The minimal requirements are:
 - A terminal to execute commands
@@ -35,6 +36,7 @@ If you want to explore the possibilities beyond local tests you need:
 - A Kubernetes Cluster which runs:
   - The SAP BTP Operator
   - The SAP Connectivity Proxy
+  
 ## Download and Installation
 To download the application run:
 

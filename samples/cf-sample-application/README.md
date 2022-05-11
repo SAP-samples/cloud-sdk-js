@@ -6,7 +6,6 @@ This repository contains our end-2-end application which we use to test the SAP 
 The repositories structure is as following:
 
 - `/approuter` - Contains the approuter, a packaging script and a manifest which is used in the deployment
-- `Jenkinsfile` - Contains a Jenkins pipeline
 - `/src` - Contains the application's source code with its 4 endpoints for cloud, onpremise and principal propagation
 - `/e2e-tests` - Contains the cypress tests that test all endpoints after deployment
 - `manifest.yml` - Manifest to deploy to SAP BTP Cloud Foundry
@@ -49,10 +48,17 @@ git sparse-checkout set samples/cf-sample-application
 ### Create Services on SAP BTP Cloud Foundry
 Before you can deploy the aapplication and approuter, you have to create a `destination`, `xsuaa`, and `connectivity` service instance.
 Their name should match the one that is used in the `manifest.yml`, in this case:
-- `destination-service`
-- `xsuaa-service`
-- `connectivity-service`
+
+```
+- <REPLACE-ME>-destination-service
+- <REPLACE-ME>-xsuaa-service
+- <REPLACE-ME>-connectivity-service
+```
 
 ### Deploy the Approuter and Application to SAP BTP Cloud Foundry
+1. Change all occurances of `<REPLACE-ME>` to your respective values, this includes destinations, your Identity Provider (IdP), services, etc.
+2. Run `npm run deploy` in the root, as well as in the `approuter` directory to deploy the application to SAP BTP Cloud Foundry.
+3. After both the `approuter` and application are deployed, open the `approuter's` url to access the deployed application.
 
-Run `npm run deploy` in the root, as well as in the `approuter` directory to deploy the application to SAP BTP Cloud Foundry.
+### Code Placeholders
+If anything isn't working as intended, search for `<REPLACE-ME>`, as all parts that have to be adapted contain this placeholder.

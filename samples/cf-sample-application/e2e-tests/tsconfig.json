@@ -5,4 +5,4 @@
       "types": ["cypress"]
     },
     "include": ["**/*.ts"]
-  }
+}

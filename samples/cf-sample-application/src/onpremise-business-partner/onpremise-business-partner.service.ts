@@ -12,6 +12,7 @@ export class OnpremiseBusinessPartnerService {
       .requestBuilder()
       .getAll()
       .top(5)
-      .execute({ destinationName: 'YOUR-CLOUD-BASIC-AUTH-DESTINATION' });
+      // the destination should point at a onpremise basic authentcation destination
+      .execute({ destinationName: '<REPLACE-ME>' });
   }
 }

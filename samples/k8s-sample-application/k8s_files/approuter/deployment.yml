@@ -15,7 +15,9 @@ spec:
         app: approuter
     spec:
       containers:
-      - image: docker-cloudsdk.docker.repositories.sap.ondemand.com/k8s-approuter:latest
+      - # Replace this with the approuter's docker image, follwing this syntax: Repository/Image:Tag
+        # Example: docker-cloudsdk.docker.repositories.sap.ondemand.com/k8s-approuter:latest
+        image: <REPLACE-ME>/<REPLACE-ME>:<REPLACE-ME>
         resources:
             requests:
               memory: "256Mi"
@@ -34,7 +36,9 @@ spec:
           - name: destinations
             value: '[{"name":"backend", "url":"http://sdkjs-e2e-svc:8080/", "forwardAuthToken": true}]'
           - name: TENANT_HOST_PATTERN
-            value: (.*).e2e.ingress.cloud-sdk-js.sdktests.shoot.canary.k8s-hana.ondemand.com
+            # Replace this with your wildcard subdoamin, has to match the ingress, with the pattern: (.*).Subdomain.Domain
+            # Example: (.*).e2e.ingress.cloud-sdk-js.sdktests.shoot.canary.k8s-hana.ondemand.com
+            value: (.*).<REPLACE-ME>.<REPLACE-ME>
       imagePullSecrets:
       - name: regcred
       volumes:

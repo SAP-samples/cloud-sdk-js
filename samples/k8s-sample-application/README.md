@@ -53,12 +53,16 @@ git sparse-checkout set samples/k8s-sample-application
 ### Deploy to Docker
 1. In the `package.json`, change the `deploy:docker` and `deploy:pipeline` scripts to point at your docker repository.
 2. Change the the `deploy:docker` script in the approuter's `package.json` to point at your docker repository.
-3. Deploy the Docker images to your repository with `npm run deploy:docker` and `npm run deploy:pipeline` in case you want to use the pipeline.
+3. Change the `xs-app.json` in the approuter directory to use either an IdP of your choice, or no IdP at all.
+4. Deploy the Docker images to your repository with `npm run deploy:docker` and `npm run deploy:pipeline` in case you want to use the pipeline.
 
 ### Deploy to Kubernetes
 1. Update the `deployment.yml` to use your Docker images and the `ingress.yml` to use the domain associated with your cluster.
 2. Use the same domnain in the `TENANT_HOST_PATTERN` in the approuter's `deployment.yml` which you specified in the `ingress.yml`.
 3. Deploy the services in `k8s_files/operator/services`.
 4. Now you can deploy the application and approuter with the Kubernetes files in `k8s_files/app`, `k8s_files/approuter` and the `ingress.yml` with `kubectl apply -f`.
+
+### Code Placeholders
+If anything isn't working as intended, search for `<REPLACE-ME>`, as all parts that have to be adapted contain this placeholder.
 
 For more detailed information on Kubernetes deployment, check out our [Kubernetes migration guide](https://sap.github.io/cloud-sdk/docs/js/guides/migrate-sdk-application-from-btp-cf-to-kubernetes).

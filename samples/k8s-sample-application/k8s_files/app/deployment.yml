@@ -14,7 +14,9 @@ spec:
     spec:          
       containers: 
       - name: sdkjs-e2e
-        image: docker-cloudsdk.docker.repositories.sap.ondemand.com/k8s-e2e-app:latest
+        # Replace this with the application's docker image, follwing this syntax: Repository/Image:Tag
+        # Example: docker-cloudsdk.docker.repositories.sap.ondemand.com/k8s-e2e-app:latest
+        image: <REPLACE-ME>/<REPLACE-ME>:<REPLACE-ME>
         resources:
           requests:
             memory: "256Mi"

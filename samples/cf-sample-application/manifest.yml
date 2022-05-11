@@ -1,5 +1,5 @@
 applications:
-  - name: k8s-e2e-app
+  - name: sdk-sample-application
     path: deployment/
     buildpacks:
       - nodejs_buildpack
@@ -7,6 +7,7 @@ applications:
     instances: 2
     command: npm run start:prod
     services:
-      - destination-service
-      - xsuaa-service
-      - connectivity-service
+    # Use the same services across approuter and application
+      - <REPLACE-ME>-destination-service
+      - <REPLACE-ME>-xsuaa-service
+      - <REPLACE-ME>-connectivity-service

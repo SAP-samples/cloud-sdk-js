@@ -1,4 +1,4 @@
 {
-    "xsappname": "YOUR-XSUAA",
+    "xsappname": "<REPLACE-ME>-xsuaa-service",
     "tenant-mode": "shared"
 }
