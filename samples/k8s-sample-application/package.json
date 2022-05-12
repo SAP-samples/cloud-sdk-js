@@ -1,7 +1,7 @@
 {
-  "name": "sap-cloud-sdk-sample-app",
+  "name": "sap-cloud-sdk-sample-application",
   "version": "0.0.1",
-  "description": "SAP Cloud SDK for JS Sample Application",
+  "description": "SAP Cloud SDK for JS - Sample application",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
@@ -19,10 +19,8 @@
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "ci-build": "echo \"Use this to compile or minify your application\"",
-    "ci-package": "sap-cloud-sdk package --include=\"package.json,package-lock.json,index.js,dist/**/*\"",
-    "package": "sap-cloud-sdk package --include \"package.json,package-lock.json,index.js,dist/**/*\" --exclude \".env\"",
-    "deploy": "npm run build && npm run package && cf push",
-    "deploy:docker": "npm run build && npm run package && docker build -t docker-cloudsdk.docker.repositories.sap.ondemand.com/k8s-e2e-app:latest . && docker push docker-cloudsdk.docker.repositories.sap.ondemand.com/k8s-e2e-app:latest",
+    "deploy": "npm run build && cf push",
+    "deploy:docker": "npm run build && docker build -t docker-cloudsdk.docker.repositories.sap.ondemand.com/k8s-e2e-app:latest . && docker push docker-cloudsdk.docker.repositories.sap.ondemand.com/k8s-e2e-app:latest",
     "deploy:pipeline": "docker build -t docker-cloudsdk.docker.repositories.sap.ondemand.com/sdkjs-k8s-pipeline:latest ./pipeline && docker push docker-cloudsdk.docker.repositories.sap.ondemand.com/sdkjs-k8s-pipeline:latest"
   },
   "dependencies": {
@@ -30,7 +28,6 @@
     "@nestjs/core": "8.4.4",
     "@nestjs/platform-express": "8.4.4",
     "@sap-cloud-sdk/connectivity": "2.3.0",
-    "@sap-cloud-sdk/core": "^1.54.1",
     "@sap/cloud-sdk-vdm-business-partner-service": "^2.0.0",
     "@sap/xsenv": "3.2.2",
     "@sap/xssec": "3.2.13",
@@ -44,7 +41,6 @@
     "@nestjs/cli": "8.2.5",
     "@nestjs/schematics": "8.0.11",
     "@nestjs/testing": "8.4.4",
-    "@sap-cloud-sdk/cli": "0.1.12",
     "@sap-cloud-sdk/test-util": "2.3.0",
     "@types/express": "4.17.13",
     "@types/jest": "27.5.0",
