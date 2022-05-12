@@ -1,7 +1,7 @@
-# SAP Cloud SDK for JS Cloud Foundry End-2-End Application
+# SAP Cloud SDK for JS Cloud Foundry Sample Application
 
 ## Description
-This repository contains our end-2-end application which we use to test the SAP Cloud SDK functionality in a SAP BTP Cloud Foundry environment.
+This repository contains our Cloud Foundry sampe application.
 
 The repositories structure is as following:
 

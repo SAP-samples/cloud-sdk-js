@@ -1,5 +1,5 @@
-# Helm Chart for the k8s-e2e-app of the SAP Cloud SDK for JS team
-This repository contains the Helm chart for our Kubernetes end-2-end application.
+# Helm Chart for the Helm Sample Application of the SAP Cloud SDK for JS team
+This repository contains the Helm chart for our Helm sample application
 It is used in our Kubernetes cluster repository.
 
 The application is designed to be deployable in any environment, Gardener, plain GCP or even Kyma, the only file you have to adapt is the `values.yaml` file.

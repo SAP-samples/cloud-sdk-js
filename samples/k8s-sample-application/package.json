@@ -1,8 +1,7 @@
 {
-  "name": "k8s-e2e-app",
+  "name": "sap-cloud-sdk-sample-app",
   "version": "0.0.1",
-  "description": "SAP Cloud SDK for JS - Test application for k8s environments",
-  "author": "Tom Frenken",
+  "description": "SAP Cloud SDK for JS Sample Application",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {

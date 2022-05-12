@@ -1,7 +1,7 @@
-# SAP Cloud SDK for JS Kubernetes End-2-End Application
+# SAP Cloud SDK for JS Kubernetes Sample Application
 
 ## Description
-This repository contains our end-2-end application which we use to test the SAP Cloud SDK functionality in a Kubernetes environment.
+This repository contains our Kubernetes Sample Application.
 
 The repositories structure is as following:
 
