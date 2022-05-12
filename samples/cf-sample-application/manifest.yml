@@ -1,6 +1,6 @@
 applications:
   - name: sdk-sample-application
-    path: deployment/
+    path: ./
     buildpacks:
       - nodejs_buildpack
     memory: 512M

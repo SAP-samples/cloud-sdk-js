@@ -1,12 +1,14 @@
 FROM node:14-alpine
 
-WORKDIR /workdir
+WORKDIR /usr/src/app
 
-COPY /deployment /workdir
+COPY package.json .
 
 RUN npm install -g npm@latest
 
-RUN ["npm", "install", "--unsafe-perm", "--production"]
+RUN npm install --unsafe-perm --production
+
+COPY . ./
 
 EXPOSE 3000
 CMD ["npm", "run", "start:prod"]
