@@ -7,7 +7,6 @@ applications:
     instances: 2
     command: npm run start:prod
     services:
-    # Use the same services across approuter and application
-      - <REPLACE-ME>-destination-service
-      - <REPLACE-ME>-xsuaa-service
-      - <REPLACE-ME>-connectivity-service
+      - sample-destination-service
+      - sample-xsuaa-service
+      - sample-connectivity-service

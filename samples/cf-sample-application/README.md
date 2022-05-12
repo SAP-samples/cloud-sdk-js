@@ -50,13 +50,13 @@ Before you can deploy the aapplication and approuter, you have to create a `dest
 Their name should match the one that is used in the `manifest.yml`, in this case:
 
 ```
-- <REPLACE-ME>-destination-service
-- <REPLACE-ME>-xsuaa-service
-- <REPLACE-ME>-connectivity-service
+- sample-destination-service
+- sample-xsuaa-service
+- sample-connectivity-service
 ```
 
 ### Deploy the Approuter and Application to SAP BTP Cloud Foundry
-1. Change all occurances of `<REPLACE-ME>` to your respective values, this includes destinations, your Identity Provider (IdP), services, etc.
+1. Change all occurances of `<REPLACE-ME>` to your respective values, this includes destinations, your Identity Provider (IdP), etc.
 2. Run `npm run deploy` in the root, as well as in the `approuter` directory to deploy the application to SAP BTP Cloud Foundry.
 3. After both the `approuter` and application are deployed, open the `approuter's` url to access the deployed application.
 
