@@ -26,7 +26,7 @@
     "cds-deploy": "cds deploy"
   },
   "dependencies": {
-    "@nestjs/common": "^8.4.4",
+    "@nestjs/common": "^8.4.5",
     "@nestjs/core": "^8.4.4",
     "@nestjs/platform-express": "^8.4.5",
     "@sap/cds": "^5.9.5",
