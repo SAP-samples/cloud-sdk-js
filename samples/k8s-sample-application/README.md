@@ -58,7 +58,7 @@ git sparse-checkout set samples/k8s-sample-application
 
 ### Deploy to Kubernetes
 1. Update the `deployment.yml` to use your Docker images and the `ingress.yml` to use the domain associated with your cluster.
-2. Use the same domnain in the `TENANT_HOST_PATTERN` in the approuter's `deployment.yml` which you specified in the `ingress.yml`.
+2. Use the same domain in the `TENANT_HOST_PATTERN` in the approuter's `deployment.yml` which you specified in the `ingress.yml`.
 3. Deploy the services in `k8s_files/operator/services`.
 4. Now you can deploy the application and approuter with the Kubernetes files in `k8s_files/app`, `k8s_files/approuter` and the `ingress.yml` with `kubectl apply -f`.
 

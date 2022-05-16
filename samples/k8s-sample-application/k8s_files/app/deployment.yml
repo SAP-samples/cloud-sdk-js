@@ -15,8 +15,8 @@ spec:
       containers: 
       - name: sdkjs-e2e
         # Replace this with the application's docker image, follwing this syntax: Repository/Image:Tag
-        # Example: docker-cloudsdk.docker.repositories.sap.ondemand.com/k8s-e2e-app:latest
-        image: <REPLACE-ME>/<REPLACE-ME>:<REPLACE-ME>
+        # Example: <REPLACE-ME>/<REPLACE-ME>:<REPLACE-ME>
+        image: docker-cloudsdk.docker.repositories.sap.ondemand.com/k8s-e2e-app:latest
         resources:
           requests:
             memory: "256Mi"
@@ -37,7 +37,9 @@ spec:
             mountPath: "/etc/secrets/sapcp/connectivity/operator-connectivity-service"
             readOnly: true
       imagePullSecrets:
-      - name: regcred
+      # Replace this with your docker registry secret
+      # Example: <REPLACE-ME>
+      - name: docker-registry-secret
       volumes:
         - name: destination-volume
           secret:

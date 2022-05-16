@@ -56,9 +56,10 @@ Their name should match the one that is used in the `manifest.yml`, in this case
 ```
 
 ### Deploy the Approuter and Application to SAP BTP Cloud Foundry
-1. Change all occurances of `<REPLACE-ME>` to your respective values, this includes destinations, your Identity Provider (IdP), etc.
-2. Run `npm run deploy` in the root, as well as in the `approuter` directory to deploy the application to SAP BTP Cloud Foundry.
-3. After both the `approuter` and application are deployed, open the `approuter's` url to access the deployed application.
+1. Change all occurances of `<REPLACE-ME>` to your respective values, this includes destinations, your Subdomain, etc.
+3. Change the `xs-app.json` in the approuter directory to use either an IdP associated with your subaccount, or no IdP at all.
+3. Run `npm run deploy` in the root, as well as in the `approuter` directory to deploy the application to SAP BTP Cloud Foundry.
+4. After both the `approuter` and application are deployed, open the `approuter's` url to access the deployed application.
 
 ### Code Placeholders
 If anything isn't working as intended, search for `<REPLACE-ME>`, as all parts that have to be adapted contain this placeholder.

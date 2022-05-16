@@ -2,8 +2,8 @@ applications:
   - name: approuter
     routes:
     # Replace the subpath with your subaccount, to match the TENANT_HOST_PATTERN
-    # Example: approuter-s4sdk.cfapps.sap.hana.ondemand.com
-    - route: approuter-<REPLACE-ME>.cfapps.sap.hana.ondemand.com
+    # Example: approuter-<REPLACE-ME>.cfapps.sap.hana.ondemand.com
+    - route: approuter-s4sdk.cfapps.sap.hana.ondemand.com
     memory: 512M
     buildpack: nodejs_buildpack
     command: npm run start
@@ -14,5 +14,5 @@ applications:
     env:
       TENANT_HOST_PATTERN: 'approuter-(.*).cfapps.sap.hana.ondemand.com'
       # Replace the url with your application's url
-      # Example: https://sdk-sample-application.cfapps.sap.hana.ondemand.com
-      destinations: '[{"name":"backend", "url":"sdk-sample-application.<REPLACE-ME>", "forwardAuthToken": true}]'
+      # Example: sdk-sample-application.<REPLACE-ME>
+      destinations: '[{"name":"backend", "url":"https://sdk-sample-application.cfapps.sap.hana.ondemand.com", "forwardAuthToken": true}]'

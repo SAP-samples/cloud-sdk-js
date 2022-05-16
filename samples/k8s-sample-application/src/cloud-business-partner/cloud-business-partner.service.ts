@@ -13,6 +13,7 @@ export class CloudBusinessPartnerService {
       .getAll()
       .top(5)
       // the destination should point at a cloud basic auth destination
-      .execute({ destinationName: '<REPLACE-ME>' });
+      // Example: <REPLACE-ME>
+      .execute({ destinationName: 'myCloudDestination' });
   }
 }
