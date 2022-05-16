@@ -1,5 +1,4 @@
 import { Test, TestingModule } from "@nestjs/testing";
-import { businessPartnerService } from "@sap/cloud-sdk-vdm-business-partner-service";
 import { BusinessPartnerController } from "./business-partner.controller";
 import { BusinessPartnerService } from "./business-partner.service";
 
@@ -33,7 +32,6 @@ describe("AppController", () => {
   it("create address", async () => {
     const numberBefore = (await controller.getBusinessPartnerById(bpId))
       .toBusinessPartnerAddress.length;
-    const api = businessPartnerService().businessPartnerAddressApi;
     await controller.createAddress(
       {
         postalCode: "14469",
@@ -53,7 +51,6 @@ describe("AppController", () => {
       .toBusinessPartnerAddress[0];
     const randomValue = Math.floor(Math.random() * 100).toString(10);
 
-    const api = businessPartnerService().businessPartnerAddressApi;
     await controller.updateBusinessPartnerAddress(
       {
         ...addressOld,
