@@ -3,9 +3,7 @@
 [![REUSE status](https://api.reuse.software/badge/github.com/SAP-samples/cloud-sdk-js)](https://api.reuse.software/info/github.com/SAP-samples/cloud-sdk-js)
 
 # SAP Cloud SDK  Samples
-
 ## Description
-
 This repository contains code samples showcasing the [SAP Cloud SDK for JavaScript / TypeScript](https://sap.github.io/cloud-sdk/js).
 We plan to increase the number of samples over time. 
 The samples will serve different purposes:
@@ -14,7 +12,6 @@ The samples will serve different purposes:
 - There will be solutions to tutorials or training courses. These applications have larger scopes and showcase the business value you can create using the SAP Cloud SDK. 
 
 ## Requirements
-
 The minimal requirements are:
 - A terminal to execute commands
 - A recent version of node and npm installed e.g. node 14 and npm 6
@@ -26,18 +23,15 @@ If you want to explore the possibilities beyond local tests you need:
 - Permission to deploy applications and create service instances
 
 ## Support
-
 If you find a bug or have questions about the concrete content of this repository [create an issue here](https://github.com/SAP-samples/<repository-name>/issues). 
 If you have a general question about a feature of the SAP Cloud SDK [create an issue in the SAP Cloud SDK repository](https://github.com/SAP/cloud-sdk-js/issues) 
 
 ## Contributing
-
 If you wish to contribute code, offer fixes or improvements, please send a pull request.
 Due to legal reasons, contributors will be asked to accept a DCO when they create the first pull request to this project.
 This happens in an automated fashion during the submission process. SAP uses [the standard DCO text of the Linux Foundation](https://developercertificate.org/).
 
 ## Code of Conduct
-
 For this repository the [code of conduct](https://github.com/SAP/cloud-sdk-js/blob/2.0/CODE_OF_CONDUCT.md) of the SDK applies.
 
 ## License
