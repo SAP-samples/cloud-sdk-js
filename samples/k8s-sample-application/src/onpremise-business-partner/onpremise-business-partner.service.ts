@@ -13,6 +13,7 @@ export class OnpremiseBusinessPartnerService {
       .getAll()
       .top(5)
       // the destination should point at a onpremise basic authentcation destination
-      .execute({ destinationName: '<REPLACE-ME>' });
+      // Example: <REPLACE-ME>
+      .execute({ destinationName: 'myOnpremiseDestination' });
   }
 }

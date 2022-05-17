@@ -11,19 +11,19 @@ spec:
   tls:
   - hosts:
     # Replace with root domain
-    # Example: cloud-sdk-js.sdktests.shoot.canary.k8s-hana.ondemand.com
-    - <REPLACE-ME>
+    # Example:<REPLACE-ME>
+    - cloud-sdk-js.sdktests.shoot.canary.k8s-hana.ondemand.com
     # Replace with subdomain which includes a wildcard for multi-tenancy, with the pattern: "*.Subdomain.Domain"
-    # Example: *.e2e.ingress.cloud-sdk-js.sdktests.shoot.canary.k8s-hana.ondemand.com
-    - "*.<REPLACE-ME>.<REPLACE-ME>"
+    # Example: "*.<REPLACE-ME>.<REPLACE-ME>"
+    - "*.e2e.ingress.cloud-sdk-js.sdktests.shoot.canary.k8s-hana.ondemand.com"
     # Replace with domain for the connectivity-proxy, with the pattern: Subdomain.Domain
-    # Example: connectivitytunnel.ingress.cloud-sdk-js.sdktests.shoot.canary.k8s-hana.ondemand.com
-    - <REPLACE-ME>.<REPLACE-ME>
+    # Example: <REPLACE-ME>.<REPLACE-ME>
+    - connectivitytunnel.ingress.cloud-sdk-js.sdktests.shoot.canary.k8s-hana.ondemand.com
     secretName: secret-tls
   rules:
   # Replace with subdomain which includes a wildcard for multi-tenancy, with the pattern: "*.Subdomain.Domain"
-  # Example: *.e2e.ingress.cloud-sdk-js.sdktests.shoot.canary.k8s-hana.ondemand.com
-  - host: "*.<REPLACE-ME>.<REPLACE-ME>"
+  # Example: "*.<REPLACE-ME>.<REPLACE-ME>" 
+  - host: "*.e2e.ingress.cloud-sdk-js.sdktests.shoot.canary.k8s-hana.ondemand.com"
     http:
       paths:
       - path: /

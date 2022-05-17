@@ -1,30 +1,33 @@
 app-chart:
-  cloudDestination: <YOUR-CLOUD-DESTINATION-WITH-BASIC-AUTHENTICATION>
-  onPremiseDestination: <YOUR-ONPREMSIE-DESTINATION-WITH-BASIC-AUTHENTICATION>
-  principalPropagationDestination: <YOUR-ONPREMSIE-DESTINATION-WITH-PRINCIPAL-PROPAGATION>
+  # A cloud destination with basic authentication
+  cloudDestination: myCloudDestination
+  # A onpremise destination with basic authentication
+  onPremiseDestination: myOnpremiseDestination
+  # A onpremise destination with principal propagation
+  principalPropagationDestination: myPrincipalPropagationDestination
   destinationBinding: operator-destination-service
   connectivityBinding: operator-connectivity-service
   xsuaaBinding: operator-xsuaa-service
   imagePullSecrets: 
-  - name: <THE-SECRET-TO-ACCESS-YOUR-DOCKER-REGISTRY>
+  # A secret containing the credentials to access your docker registry
+  - name: docker-registry-secret
 approuter-chart:
   config:
-    idp: <YOUR-IDP>
+  # An Identity Provider which is in your subaccount
+    idp: default
     # The TENANT_HOST_PATTERN your approuter will use to point at the right subaccount
-    # Example: (.*).e2e.ingress.cloud-sdk-js.sdktests.shoot.canary.k8s-hana.ondemand.com
-    pattern: (.*).<YOUR-EXPOSED-ROUTE>
+    pattern: (.*).e2e.ingress.cloud-sdk-js.sdktests.shoot.canary.k8s-hana.ondemand.com
   xsuaaBinding: operator-xsuaa-service
+  # A secret containing the credentials to access your docker registry
   imagePullSecrets:
-  - name: <THE-SECRET-TO-ACCESS-YOUR-DOCKER-REGISTRY>
+  - name: docker-registry-secret
 ingress:
   enabled: true
+  # Your cluster enviroment (see README table for more information)
   environment: gardener
   # Your domain
-  # Example:  cloud-sdk-js.sdktests.shoot.canary.k8s-hana.ondemand.com
-  shortRoute: <YOUR-DOMAIN>
+  shortRoute: cloud-sdk-js.sdktests.shoot.canary.k8s-hana.ondemand.com
   # The route your approuter will use, with a wildcard to enable multi-tenancy
-  # Example: "*.e2e.ingress.cloud-sdk-js.sdktests.shoot.canary.k8s-hana.ondemand.com"
-  exposedRoute:  "*.<YOUR-APPROUTER-ROUTE>.<YOUR-DOMAIN>"
+  exposedRoute: "*.e2e.ingress.cloud-sdk-js.sdktests.shoot.canary.k8s-hana.ondemand.com"
   # The route your connectivity proxy will use to create a tunnel to your cloud connector
-  # Example: connectivitytunnel.ingress.cloud-sdk-js.sdktests.shoot.canary.k8s-hana.ondemand.com
-  connectivityProxyRoute: <YOUR-CONNECTIVITY-TUNNEL-ROUTE>.<YOUR-DOMAIN>
+  connectivityProxyRoute: connectivitytunnel.ingress.cloud-sdk-js.sdktests.shoot.canary.k8s-hana.ondemand.com

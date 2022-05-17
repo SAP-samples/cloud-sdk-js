@@ -16,7 +16,8 @@ export class PrincipalBusinessPartnerService {
       .top(5)
       .execute({
         // the destination should point at a principal propagation destination
-        destinationName: '<REPLACE-ME>',
+        // Example: <REPLACE-ME>
+        destinationName: 'myPrincipalPropagationDestination',
         jwt: retrieveJwt(request),
       });
   }
