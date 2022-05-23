@@ -38,7 +38,7 @@ export class BusinessPartnerService {
 
   /**
    * Get a business partner by ID.
-   * @param id - Of the business partner to be returned.
+   * @param id - ID of the business partner to be returned.
    * @returns The business partner with the given ID.
    */
   getBusinessPartnerById(id: string): Promise<BusinessPartner> {
