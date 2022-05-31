@@ -44,7 +44,7 @@
     "@sap-cloud-sdk/test-util": "^2.4.0",
     "@types/express": "^4.17.13",
     "@types/jest": "27.5.0",
-    "@types/node": "^17.0.36",
+    "@types/node": "^17.0.38",
     "@types/supertest": "^2.0.12",
     "@typescript-eslint/eslint-plugin": "^5.27.0",
     "@typescript-eslint/parser": "^5.27.0",
