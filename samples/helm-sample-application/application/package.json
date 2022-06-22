@@ -29,7 +29,7 @@
     "@nestjs/platform-express": "8.4.7",
     "@sap-cloud-sdk/connectivity": "2.5.0",
     "@sap/cloud-sdk-vdm-business-partner-service": "^2.0.0",
-    "@sap/xsenv": "3.3.1",
+    "@sap/xsenv": "3.3.2",
     "@sap/xssec": "3.2.13",
     "passport": "0.6.0",
     "reflect-metadata": "0.1.13",
