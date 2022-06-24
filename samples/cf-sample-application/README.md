@@ -1,7 +1,7 @@
 # SAP Cloud SDK for JS Cloud Foundry Sample Application
 
 ## Description
-This repository contains our Cloud Foundry sampe application.
+This repository contains our Cloud Foundry sample application.
 
 The repositories structure is as following:
 
@@ -46,7 +46,7 @@ git sparse-checkout set samples/cf-sample-application
 ```
 
 ### Create Services on SAP BTP Cloud Foundry
-Before you can deploy the aapplication and approuter, you have to create a `destination`, `xsuaa`, and `connectivity` service instance.
+Before you can deploy the application and approuter, you have to create a `destination`, `xsuaa`, and `connectivity` service instance.
 Their name should match the one that is used in the `manifest.yml`, in this case:
 
 ```
@@ -56,7 +56,7 @@ Their name should match the one that is used in the `manifest.yml`, in this case
 ```
 
 ### Deploy the Approuter and Application to SAP BTP Cloud Foundry
-1. Change all occurances of `<REPLACE-ME>` to your respective values, this includes destinations, your Subdomain, etc.
+1. Change all occurrences of `<REPLACE-ME>` to your respective values, this includes destinations, your Subdomain, etc.
 2. Change the `xs-app.json` in the approuter directory to use either an IdP associated with your subaccount, or no IdP at all.
 3. Run `npm run deploy` in the root, as well as in the `approuter` directory to deploy the application to SAP BTP Cloud Foundry.
 4. After both the `approuter` and application are deployed, open the `approuter's` url to access the deployed application.
