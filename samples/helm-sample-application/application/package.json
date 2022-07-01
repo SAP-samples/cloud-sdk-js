@@ -38,7 +38,7 @@
     "webpack": "5.73.0"
   },
   "devDependencies": {
-    "@nestjs/cli": "8.2.6",
+    "@nestjs/cli": "8.2.8",
     "@nestjs/schematics": "8.0.11",
     "@nestjs/testing": "8.4.7",
     "@sap-cloud-sdk/test-util": "2.5.0",
@@ -50,7 +50,7 @@
     "@typescript-eslint/parser": "5.29.0",
     "eslint": "8.18.0",
     "eslint-config-prettier": "8.5.0",
-    "eslint-plugin-prettier": "4.0.0",
+    "eslint-plugin-prettier": "4.2.1",
     "jest": "28.1.1",
     "prettier": "2.7.1",
     "supertest": "6.2.3",
