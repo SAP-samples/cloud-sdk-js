@@ -55,7 +55,7 @@
     "nock": "^13.2.9",
     "prettier": "^2.7.1",
     "source-map-support": "^0.5.20",
-    "sqlite3": "^5.0.9",
+    "sqlite3": "^5.0.10",
     "supertest": "^6.2.4",
     "ts-jest": "^27.1.4",
     "ts-loader": "^9.3.1",
