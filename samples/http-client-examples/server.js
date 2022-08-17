@@ -22,6 +22,12 @@ app.get("/encoding", async (req, res) => {
   res.send(req.url);
 });
 
+app.get("/origin", async (req, res) => {
+  const result = req.headers;
+  result["requestUrl"] = req.url;
+  res.send(JSON.stringify(result));
+});
+
 app.listen(port, () => {
   console.log(`Server listening on port ${port}`);
 });
