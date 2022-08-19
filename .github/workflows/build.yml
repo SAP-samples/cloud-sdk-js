@@ -41,6 +41,7 @@ jobs:
          cd samples/resilience-examples
           npm run test
 
+  # Don't run those tests in the matrix to avoid issues with using the port concurrently
   test-http-client:
     runs-on: ubuntu-latest
     timeout-minutes: 15
@@ -50,6 +51,24 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: 14.x
+      - name: HTTP Client Examples - Install Dependencies
+        run:  |
+         cd samples/http-client-examples
+          npm install
+      - name: HTTP Client - Tests
+        run:  |
+         cd samples/http-client-examples
+          npm run test
+
+  test-http-client-16:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v2
+      - run: git fetch --depth=1
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 16.x
       - name: HTTP Client Examples - Install Dependencies
         run:  |
          cd samples/http-client-examples
