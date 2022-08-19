@@ -1,11 +1,11 @@
-import express from 'express'
+import express from "express";
 const app = express();
 const port = 3000;
 
 // For unit tests
 let autoShutdown = false;
 const args = process.argv.slice(2);
-if (args[0] === '--auto-shutdown') {
+if (args[0] === "--auto-shutdown") {
   autoShutdown = true;
 }
 
@@ -41,5 +41,5 @@ const server = app.listen(port, () => {
 
 // For unit tests
 if (autoShutdown) {
-  setTimeout(() => server.close(), 3000)
+  setTimeout(() => server.close(), 3000);
 }

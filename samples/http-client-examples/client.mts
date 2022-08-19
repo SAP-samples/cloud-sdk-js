@@ -4,14 +4,16 @@ import {
   HttpResponse,
   ParameterEncoder,
 } from "@sap-cloud-sdk/http-client";
-import { setGlobalLogLevel } from "@sap-cloud-sdk/util";
+import { setGlobalLogLevel, createLogger } from "@sap-cloud-sdk/util";
+
+const logger = createLogger("http-client-examples");
 
 // Change to 'debug' to see more about http client internals
 setGlobalLogLevel("info");
 
 function printResponse(r: HttpResponse) {
-  console.log(
-    `====\nHTTP Response:\nStatus:\t${r.status}\nData:\t${JSON.stringify(
+  logger.info(
+    `HTTP Response:\nStatus:\t${r.status}\nData:\t${JSON.stringify(
       r.data
     )}\n====\n`
   );
@@ -35,7 +37,7 @@ printResponse(csrfTokenResponse);
 const myCustomParameterEncodingFunction: ParameterEncoder = function (
   params: Record<string, any>
 ): Record<string, any> {
-  console.log("Original params", JSON.stringify(params));
+  logger.info("Original params", JSON.stringify(params));
 
   const encodedParams: Record<string, any> = {};
 
@@ -43,7 +45,7 @@ const myCustomParameterEncodingFunction: ParameterEncoder = function (
     encodedParams[k] = encodeURI(params[k].toString());
   }
 
-  console.log("Encoded params", JSON.stringify(encodedParams));
+  logger.info("Encoded params", JSON.stringify(encodedParams));
 
   return encodedParams;
 };
