@@ -1,6 +1,13 @@
-const express = require("express");
+import express from 'express'
 const app = express();
 const port = 3000;
+
+// For unit tests
+let autoShutdown = false;
+const args = process.argv.slice(2);
+if (args[0] === '--auto-shutdown') {
+  autoShutdown = true;
+}
 
 app.head("/csrf-token", async (req, res) => {
   res
@@ -28,6 +35,11 @@ app.get("/origin", async (req, res) => {
   res.send(JSON.stringify(result));
 });
 
-app.listen(port, () => {
+const server = app.listen(port, () => {
   console.log(`Server listening on port ${port}`);
 });
+
+// For unit tests
+if (autoShutdown) {
+  setTimeout(() => server.close(), 3000)
+}

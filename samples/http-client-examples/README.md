@@ -17,7 +17,7 @@ npm ci
 This script starts a small [express](https://expressjs.com/) based HTTP server for demonstration purposes.
 
 ```
-node server.js
+npx ts-node --esm server.mts
 ```
 
 ### Execute HTTP requests
@@ -27,3 +27,8 @@ In another terminal, make HTTP requests to demo-server.
 ```
 npx ts-node --esm client.mts
 ```
+
+## Test
+
+`npm test` will run both the client and the server and stop the server after a few seconds.
+Both commands should exit with code `0`.
