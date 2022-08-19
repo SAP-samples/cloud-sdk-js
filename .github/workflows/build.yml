@@ -15,6 +15,7 @@ jobs:
     timeout-minutes: 15
     strategy:
       matrix:
+        max-parallel: 1
         os: [ubuntu-latest]
         node-version: [14.x, 16.x]
     steps:
