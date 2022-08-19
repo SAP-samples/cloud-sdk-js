@@ -40,6 +40,14 @@ jobs:
         run:  |
          cd samples/resilience-examples
           npm run test
+      - name: HTTP Client Examples - Install Dependencies
+        run:  |
+         cd samples/http-client-examples
+          npm install
+      - name: HTTP Client - Tests
+        run:  |
+         cd samples/http-client-examples
+          npm run test
 
 
   dependabot:
