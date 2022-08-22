@@ -3,6 +3,7 @@ const app = express();
 const port = 3000;
 
 // For unit tests
+// Shutdown the server automatically after a few seconds to make our test terminate.
 let autoShutdown = false;
 const args = process.argv.slice(2);
 if (args[0] === "--auto-shutdown") {
@@ -40,6 +41,7 @@ const server = app.listen(port, () => {
 });
 
 // For unit tests
+// Shutdown the server automatically after a few seconds to make our test terminate.
 if (autoShutdown) {
   setTimeout(() => server.close(), 3000);
 }

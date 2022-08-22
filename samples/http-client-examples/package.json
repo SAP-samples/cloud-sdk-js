@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "test": "concurrently --names server,client --timings \"npx ts-node-esm server.mts --auto-shutdown\" \"npx ts-node --esm client.mts\""
+    "test": "concurrently --names server,client --timings \"npx ts-node --esm server.mts --auto-shutdown\" \"npx ts-node --esm client.mts\""
   },
   "keywords": [],
   "author": "",

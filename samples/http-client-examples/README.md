@@ -32,3 +32,7 @@ npx ts-node --esm client.mts
 
 `npm test` will run both the client and the server and stop the server after a few seconds.
 Both commands should exit with code `0`.
+
+The tests are run by [concurrently](https://www.npmjs.com/package/concurrently).
+The purpose of the tests is to see that our usage examples still work.
+See the `test` script in `package.json` for the command line.
