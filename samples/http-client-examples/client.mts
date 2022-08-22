@@ -65,8 +65,7 @@ const encodingResponse = await executeHttpRequest(
       },
     },
     parameterEncoder: myCustomParameterEncodingFunction,
-  },
-  {}
+  }
 );
 
 printResponse(encodingResponse);
