@@ -1,14 +1,5 @@
-import express from "express";
+const express = require("express");
 const app = express();
-const port = 3000;
-
-// For unit tests
-// Shutdown the server automatically after a few seconds to make our test terminate.
-let autoShutdown = false;
-const args = process.argv.slice(2);
-if (args[0] === "--auto-shutdown") {
-  autoShutdown = true;
-}
 
 app.head("/csrf-token", async (req, res) => {
   res
@@ -36,16 +27,8 @@ app.get("/origin", async (req, res) => {
   res.send(JSON.stringify(result));
 });
 
-app.get("/destination", async (req, res) => {
+app.get("/ping", async (req, res) => {
   res.send("pong");
 });
 
-const server = app.listen(port, () => {
-  console.log(`Server listening on port ${port}`);
-});
-
-// For unit tests
-// Shutdown the server automatically after a few seconds to make our test terminate.
-if (autoShutdown) {
-  setTimeout(() => server.close(), 3000);
-}
+exports.app = app;
