@@ -90,6 +90,9 @@ const originResponse = await executeHttpRequestWithOrigin(
 
 printResponse(originResponse);
 
-const localDestinationResponse = await executeHttpRequest({destinationName: 'MyLocalDestination'}, {method: 'get', url: '/destination'})
+const localDestinationResponse = await executeHttpRequest(
+  { destinationName: "MyLocalDestination" },
+  { method: "get", url: "/destination" }
+);
 
 printResponse(localDestinationResponse);
