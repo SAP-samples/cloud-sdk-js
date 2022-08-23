@@ -13,7 +13,7 @@ setGlobalLogLevel("info");
 
 function printResponse(r: HttpResponse) {
   logger.info(
-    `HTTP Response:\nStatus:\t${r.status}\nData:\t${JSON.stringify(
+    `HTTP Response:\nStatus: ${r.status}\nData:   ${JSON.stringify(
       r.data
     )}\n====\n`
   );
@@ -89,3 +89,10 @@ const originResponse = await executeHttpRequestWithOrigin(
 );
 
 printResponse(originResponse);
+
+const localDestinationResponse = await executeHttpRequest(
+  { destinationName: "MyLocalDestination" },
+  { method: "get", url: "/destination" }
+);
+
+printResponse(localDestinationResponse);

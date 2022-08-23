@@ -25,6 +25,7 @@ npx ts-node --esm server.mts
 In another terminal, make HTTP requests to demo-server.
 
 ```
+export destinations="[{\"name\": \"MyLocalDestination\", \"url\": \"http://localhost:3000\"}]"
 npx ts-node --esm client.mts
 ```
 

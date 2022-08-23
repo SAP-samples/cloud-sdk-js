@@ -58,6 +58,7 @@ jobs:
       - name: HTTP Client - Tests
         run:  |
          cd samples/http-client-examples
+          export destinations="[{\"name\": \"MyLocalDestination\", \"url\": \"http://localhost:3000\"}]"
           npm run test
 
   test-http-client-16:
@@ -76,6 +77,7 @@ jobs:
       - name: HTTP Client - Tests
         run:  |
          cd samples/http-client-examples
+          export destinations="[{\"name\": \"MyLocalDestination\", \"url\": \"http://localhost:3000\"}]"
           npm run test
 
   dependabot:

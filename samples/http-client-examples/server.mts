@@ -36,6 +36,10 @@ app.get("/origin", async (req, res) => {
   res.send(JSON.stringify(result));
 });
 
+app.get("/destination", async (req, res) => {
+  res.send("pong");
+});
+
 const server = app.listen(port, () => {
   console.log(`Server listening on port ${port}`);
 });
