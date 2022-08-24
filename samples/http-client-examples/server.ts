@@ -1,4 +1,4 @@
-const express = require("express");
+import express from "express";
 const app = express();
 
 app.head("/csrf-token", async (req, res) => {
@@ -31,4 +31,4 @@ app.get("/ping", async (req, res) => {
   res.send("pong");
 });
 
-exports.app = app;
+export default app;

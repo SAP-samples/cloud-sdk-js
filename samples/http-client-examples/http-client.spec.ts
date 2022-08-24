@@ -1,5 +1,8 @@
-const httpClient = require("@sap-cloud-sdk/http-client");
-const server = require("./server.ts");
+import {
+  executeHttpRequest,
+  executeHttpRequestWithOrigin,
+} from "@sap-cloud-sdk/http-client";
+import app from "./server";
 
 let myApp: any;
 
@@ -7,7 +10,7 @@ const SERVER_PORT = process.env.SERVER_PORT || 8181;
 
 describe("HTTP Client Usage Examples", () => {
   beforeAll(() => {
-    myApp = server.app.listen(SERVER_PORT, () => {
+    myApp = app.listen(SERVER_PORT, () => {
       console.log(`Server listening on port ${SERVER_PORT}`);
     });
   });
@@ -15,7 +18,7 @@ describe("HTTP Client Usage Examples", () => {
     myApp.close();
   });
   it("Show usage of fetchCsrfToken", async () => {
-    const csrfTokenResponse = await httpClient.executeHttpRequest(
+    const csrfTokenResponse = await executeHttpRequest(
       {
         url: `http://localhost:${SERVER_PORT}/`,
       },
@@ -46,7 +49,7 @@ describe("HTTP Client Usage Examples", () => {
       return encodedParams;
     };
 
-    const encodingResponse = await httpClient.executeHttpRequest(
+    const encodingResponse = await executeHttpRequest(
       {
         url: `http://localhost:${SERVER_PORT}/encoding`,
       },
@@ -72,7 +75,7 @@ describe("HTTP Client Usage Examples", () => {
   });
 
   it("Show usage of request with origin", async () => {
-    const originResponse = await httpClient.executeHttpRequestWithOrigin(
+    const originResponse = await executeHttpRequestWithOrigin(
       {
         url: `http://localhost:${SERVER_PORT}/`,
       },
@@ -104,7 +107,7 @@ describe("HTTP Client Usage Examples", () => {
     ] = `[{"name": "MyLocalDestination", "url": "http://localhost:${SERVER_PORT}"}]`;
     expect(process.env["destinations"]).toBeDefined();
 
-    const localDestinationResponse = await httpClient.executeHttpRequest(
+    const localDestinationResponse = await executeHttpRequest(
       { destinationName: "MyLocalDestination" },
       { method: "get", url: "/ping" }
     );
