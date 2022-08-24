@@ -2,7 +2,10 @@
 
 Examples for using the HTTP Client in SAP Cloud SDK for JavaScript.
 
-Refer to [the documentation](https://sap.github.io/cloud-sdk/docs/js/features/connectivity/generic-http-client).
+Refer to [the documentation](https://sap.github.io/cloud-sdk/docs/js/features/connectivity/generic-http-client) for a description of HTTP Client.
+
+The examples are implemented in [http-client.spec.ts](./http-client.spec.ts).
+The purpose of those examples is to provide usable sample code for the examples mentioned the documentation.
 
 ## Instructions to run locally
 
@@ -12,28 +15,14 @@ Refer to [the documentation](https://sap.github.io/cloud-sdk/docs/js/features/co
 npm ci
 ```
 
-### Start demo-server
+### Run tests
 
-This script starts a small [express](https://expressjs.com/) based HTTP server for demonstration purposes.
+They are built as tests which demonstrate how to use the HTTP Client.
 
-```
-npx ts-node --esm server.mts
-```
-
-### Execute HTTP requests
-
-In another terminal, make HTTP requests to demo-server.
+To run the tests, execute the following command:
 
 ```
-export destinations="[{\"name\": \"MyLocalDestination\", \"url\": \"http://localhost:3000\"}]"
-npx ts-node --esm client.mts
+npm run test
 ```
 
-## Test
-
-`npm test` will run both the client and the server and stop the server after a few seconds.
-Both commands should exit with code `0`.
-
-The tests are run by [concurrently](https://www.npmjs.com/package/concurrently).
-The purpose of the tests is to see that our usage examples still work.
-See the `test` script in `package.json` for the command line.
+This will start a local [express](https://expressjs.com/)-based HTTP server and perform a few example requests using the HTTP Client.
