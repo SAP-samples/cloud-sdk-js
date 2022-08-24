@@ -5,7 +5,7 @@ let myApp: any;
 
 const SERVER_PORT = process.env.SERVER_PORT || 8181;
 
-describe("HTTP Client Examples", () => {
+describe("HTTP Client Usage Examples", () => {
   beforeAll(() => {
     myApp = server.app.listen(SERVER_PORT, () => {
       console.log(`Server listening on port ${SERVER_PORT}`);
@@ -29,6 +29,7 @@ describe("HTTP Client Examples", () => {
     );
 
     expect(csrfTokenResponse).toBeDefined();
+    expect(csrfTokenResponse.status).toBe(200);
     expect(csrfTokenResponse.data).toEqual("Request with token");
   });
 
@@ -53,10 +54,10 @@ describe("HTTP Client Examples", () => {
         method: "get",
         params: {
           custom: {
-            customParam: "a/b c",
+            customParam: "a/b c>d<e`f\\g",
           },
           requestConfig: {
-            requestParam: "a/b c",
+            requestParam: "a/b c>d<e`f\\g",
           },
         },
         parameterEncoder: myCustomParameterEncodingFunction,
@@ -64,8 +65,9 @@ describe("HTTP Client Examples", () => {
     );
 
     expect(encodingResponse).toBeDefined();
+    expect(encodingResponse.status).toBe(200);
     expect(encodingResponse.data).toEqual(
-      "/encoding?requestParam=a/b%20c&customParam=a/b%20c"
+      "/encoding?requestParam=a/b%20c%3Ed%3Ce%60f%5Cg&customParam=a/b%20c%3Ed%3Ce%60f%5Cg"
     );
   });
 
@@ -89,6 +91,7 @@ describe("HTTP Client Examples", () => {
     );
 
     expect(originResponse).toBeDefined();
+    expect(originResponse.status).toBe(200);
     expect(originResponse.data.apikey).toEqual("custom-header");
     expect(originResponse.data.requestUrl).toEqual(
       "/origin?myParam=custom-param"
@@ -96,8 +99,10 @@ describe("HTTP Client Examples", () => {
   });
 
   it("Show usage of request with local destination", async () => {
-    process.env['destinations'] = `[{"name": "MyLocalDestination", "url": "http://localhost:${SERVER_PORT}"}]`;
-    expect(process.env['destinations']).toBeDefined();
+    process.env[
+      "destinations"
+    ] = `[{"name": "MyLocalDestination", "url": "http://localhost:${SERVER_PORT}"}]`;
+    expect(process.env["destinations"]).toBeDefined();
 
     const localDestinationResponse = await httpClient.executeHttpRequest(
       { destinationName: "MyLocalDestination" },
@@ -105,6 +110,7 @@ describe("HTTP Client Examples", () => {
     );
 
     expect(localDestinationResponse).toBeDefined();
+    expect(localDestinationResponse.status).toBe(200);
     expect(localDestinationResponse.data).toEqual("pong");
   });
 });
