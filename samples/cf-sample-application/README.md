@@ -45,6 +45,16 @@ cd cloud-sdk-js
 git sparse-checkout set samples/cf-sample-application
 ```
 
+### Create oData Client
+
+Due to intellectual property reasons we are not allowed to include SAP service definitions in this open source repository.
+Please download the following service definitions  in `EDMX` format from the API hub:
+- [Business Partner service onPremise](https://api.sap.com/api/OP_API_BUSINESS_PARTNER_SRV/overview)
+- [Business Partner service cloud](https://api.sap.com/api/API_BUSINESS_PARTNER/overview)
+
+Store the two files as `cloud-business-partner-service.edmx` and `op-business-partner-service.edmx` in the folder `resources/service-specs`.
+Generate the client by executing the npm command `npm run generate-client`
+
 ### Create Services on SAP BTP Cloud Foundry
 Before you can deploy the application and approuter, you have to create a `destination`, `xsuaa`, and `connectivity` service instance.
 Their name should match the one that is used in the `manifest.yml`, in this case:
