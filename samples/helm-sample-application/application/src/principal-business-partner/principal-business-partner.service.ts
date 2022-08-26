@@ -1,13 +1,12 @@
 import { Injectable } from '@nestjs/common';
 import {
   BusinessPartner,
-  businessPartnerService,
-} from '@sap/cloud-sdk-vdm-business-partner-service';
+  opBusinessPartnerService as businessPartnerService,
+} from '../generated/op-business-partner-service';
 import { retrieveJwt } from '@sap-cloud-sdk/connectivity';
 import { Request } from 'express';
 const { businessPartnerApi } = businessPartnerService();
 
-const destinationName: string = process.env.PRINCIPAL_PROPAGATION_DESTINATION;
 @Injectable()
 export class PrincipalBusinessPartnerService {
   async getFiveBusinessPartners(request: Request): Promise<BusinessPartner[]> {
@@ -16,7 +15,9 @@ export class PrincipalBusinessPartnerService {
       .getAll()
       .top(5)
       .execute({
-        destinationName: destinationName,
+        // the destination should point at a principal propagation destination
+        // Example: <REPLACE-ME>
+        destinationName: 'myPrincipalPropagationDestination',
         jwt: retrieveJwt(request),
       });
   }

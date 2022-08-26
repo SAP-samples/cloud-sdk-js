@@ -12,7 +12,7 @@ import { PrincipalBusinessPartnerService } from './principal-business-partner/pr
     AppService,
     OnpremiseBusinessPartnerService,
     CloudBusinessPartnerService,
-    PrincipalBusinessPartnerService,
+    PrincipalBusinessPartnerService
   ],
 })
 export class AppModule {}
