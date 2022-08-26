@@ -9,3 +9,15 @@ const cfSampleApplication = resolve(
   '../samples/cf-sample-application/resources/service-specs'
 );
 writeFilesToServiceSpecFolder(cfSampleApplication);
+
+const helmSampleApplication = resolve(
+    __dirname,
+    '../samples/helm-sample-application/application/resources/service-specs'
+);
+writeFilesToServiceSpecFolder(helmSampleApplication);
+
+const k8sSampleApplication = resolve(
+    __dirname,
+    '../samples/k8s-sample-application/resources/service-specs'
+);
+writeFilesToServiceSpecFolder(k8sSampleApplication);
