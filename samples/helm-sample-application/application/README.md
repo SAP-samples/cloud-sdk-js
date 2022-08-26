@@ -51,6 +51,16 @@ cd cloud-sdk-js
 git sparse-checkout set samples/helm-sample-application
 ```
 
+### Create oData Client
+
+Due to intellectual property reasons we are not allowed to include SAP service definitions in this open source repository.
+Please download the following service definitions  in `EDMX` format from the API hub:
+- [Business Partner service onPremise](https://api.sap.com/api/OP_API_BUSINESS_PARTNER_SRV/overview)
+- [Business Partner service cloud](https://api.sap.com/api/API_BUSINESS_PARTNER/overview)
+
+Store the two files as `cloud-business-partner-service.edmx` and `op-business-partner-service.edmx` in the folder `resources/service-specs`.
+Run `npm i` and generate the client by executing the npm command `npm run generate-client`
+
 ### Deploy to Docker
 1. In the `package.json`, change the `deploy:docker` and `deploy:pipeline` scripts to point at your docker repository.
 2. Change the the `deploy:docker` script in the approuter's `package.json` to point at your docker repository.
