@@ -1,0 +1,12 @@
+{
+  "cloud-business-partner-service": {
+    "directoryName": "cloud-business-partner-service",
+    "servicePath": "/sap/opu/odata/sap/API_BUSINESS_PARTNER",
+    "npmPackageName": "cloud-business-partner-service"
+  },
+  "op-business-partner-service": {
+    "directoryName": "op-business-partner-service",
+    "servicePath": "/sap/opu/odata/sap/API_BUSINESS_PARTNER",
+    "npmPackageName": "op-business-partner-service"
+  }
+}

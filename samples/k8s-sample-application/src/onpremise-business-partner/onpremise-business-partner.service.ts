@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import {
   BusinessPartner,
-  businessPartnerService,
-} from '@sap/cloud-sdk-vdm-business-partner-service';
+  opBusinessPartnerService as businessPartnerService,
+} from '../generated/op-business-partner-service';
 const { businessPartnerApi } = businessPartnerService();
 
 @Injectable()

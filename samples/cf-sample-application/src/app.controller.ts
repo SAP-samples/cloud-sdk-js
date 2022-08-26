@@ -1,5 +1,6 @@
 import { Controller, Get, Req } from '@nestjs/common';
-import { BusinessPartner } from '@sap/cloud-sdk-vdm-business-partner-service';
+import { BusinessPartner as BusinessPartnerCloud } from './generated/cloud-business-partner-service';
+import { BusinessPartner as BusinessPartnerOp } from './generated/op-business-partner-service';
 import { OnpremiseBusinessPartnerService } from './onpremise-business-partner/onpremise-business-partner.service';
 import { AppService } from './app.service';
 import { CloudBusinessPartnerService } from './cloud-business-partner/cloud-business-partner.service';
@@ -23,19 +24,19 @@ export class AppController {
   }
 
   @Get('cloud-business-partner')
-  getCloudBusinessPartner(): Promise<BusinessPartner[]> {
+  getCloudBusinessPartner(): Promise<BusinessPartnerCloud[]> {
     return this.cloudBusinessPartnerService.getFiveBusinessPartners();
   }
 
   @Get('onpremise-business-partner')
-  getOnpremiseBusinessPartner(): Promise<BusinessPartner[]> {
+  getOnpremiseBusinessPartner(): Promise<BusinessPartnerOp[]> {
     return this.onpremiseBusinessPartnerService.getFiveBusinessPartners();
   }
 
   @Get('principal-business-partner')
   getPrincipalBusinessPartner(
     @Req() request: Request,
-  ): Promise<BusinessPartner[]> {
+  ): Promise<BusinessPartnerOp[]> {
     return this.principalBusinessPartnerService.getFiveBusinessPartners(
       request,
     );
