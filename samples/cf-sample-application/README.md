@@ -47,7 +47,7 @@ git sparse-checkout set samples/cf-sample-application
 
 ### Create oData Client
 
-Due to intellectual property reasons we are not allowed to include SAP service definitions in this open source repository.
+For legal reasons, this repository must not contain the SAP service definitions.
 Please download the following service definitions  in `EDMX` format from the API hub:
 - [Business Partner service onPremise](https://api.sap.com/api/OP_API_BUSINESS_PARTNER_SRV/overview)
 - [Business Partner service cloud](https://api.sap.com/api/API_BUSINESS_PARTNER/overview)
