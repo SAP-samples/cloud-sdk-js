@@ -53,7 +53,7 @@ Please download the following service definitions  in `EDMX` format from the API
 - [Business Partner service cloud](https://api.sap.com/api/API_BUSINESS_PARTNER/overview)
 
 Store the two files as `cloud-business-partner-service.edmx` and `op-business-partner-service.edmx` in the folder `resources/service-specs`.
-Run `npm i` and generate the client by executing the npm command `npm run generate-client`
+Run `npm i` and generate the client by executing the npm command `npm run generate-client`.
 
 ### Create Services on SAP BTP Cloud Foundry
 Before you can deploy the application and approuter, you have to create a `destination`, `xsuaa`, and `connectivity` service instance.
