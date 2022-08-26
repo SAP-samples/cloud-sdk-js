@@ -5,6 +5,7 @@ import {
 } from '../generated/op-business-partner-service';
 const { businessPartnerApi } = businessPartnerService();
 
+const destinationName: string = process.env.ONPREMISE_DESTINATION;
 @Injectable()
 export class OnpremiseBusinessPartnerService {
   async getFiveBusinessPartners(): Promise<BusinessPartner[]> {
@@ -12,8 +13,6 @@ export class OnpremiseBusinessPartnerService {
       .requestBuilder()
       .getAll()
       .top(5)
-      // the destination should point at a onpremise basic authentcation destination
-      // Example: <REPLACE-ME>
-      .execute({ destinationName: 'myOnpremiseDestination' });
+      .execute({ destinationName: destinationName });
   }
 }

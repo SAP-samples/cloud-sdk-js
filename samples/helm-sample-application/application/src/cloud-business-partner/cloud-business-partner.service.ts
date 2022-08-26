@@ -5,6 +5,7 @@ import {
 } from '../generated/cloud-business-partner-service';
 const { businessPartnerApi } = businessPartnerService();
 
+const destinationName: string = process.env.CLOUD_DESTINATION;
 @Injectable()
 export class CloudBusinessPartnerService {
   async getFiveBusinessPartners(): Promise<BusinessPartner[]> {
@@ -12,8 +13,6 @@ export class CloudBusinessPartnerService {
       .requestBuilder()
       .getAll()
       .top(5)
-      // the destination should point at a cloud basic auth destination
-      // Example: <REPLACE-ME>
-      .execute({ destinationName: 'myCloudDestination' });
+      .execute({ destinationName: destinationName });
   }
 }
