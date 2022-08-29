@@ -7,7 +7,7 @@
     "fetch-service-definitions": "ts-node scripts/fetch-service-spec-cli.ts",
     "prettier": "prettier scripts -w"
   },
-  "license": "ISC",
+  "license": "Apache-2.0",
   "dependencies": {
 
   },
