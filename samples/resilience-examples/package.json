@@ -1,5 +1,5 @@
 {
-  "name": "@sap-cloud-sdk/sample",
+  "name": "@sap-cloud-sdk/samples",
   "version": "0.0.1",
   "description": "SAP Cloud SDK for JS - Examples on Resilience",
   "author": "Frank Essenberger",
