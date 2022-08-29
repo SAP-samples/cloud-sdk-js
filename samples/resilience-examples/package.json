@@ -4,7 +4,7 @@
   "description": "SAP Cloud SDK for JS - Examples on Resilience",
   "author": "Frank Essenberger",
   "private": true,
-  "license": "UNLICENSED",
+  "license": "Apache-2.0",
   "scripts": {
     "lint": "eslint \"src/**/*.ts\" && yarn prettier .",
     "lint:fix": "eslint \"src/**/*.ts\" --fix && yarn prettier . -w",

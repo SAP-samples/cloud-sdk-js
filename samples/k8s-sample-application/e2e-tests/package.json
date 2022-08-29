@@ -6,7 +6,7 @@
     "test": "npx cypress run"
   },
   "author": "",
-  "license": "ISC",
+  "license": "Apache-2.0",
   "devDependencies": {
     "cypress": "10.6.0",
     "typescript": "4.7.4"

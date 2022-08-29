@@ -1,16 +1,13 @@
 {
-  "name": "Dependencies to manage scripts and things used by multiple samples",
+  "name": "sap-cloud-sdk-samples-meta-dependencies",
   "version": "1.0.0",
   "private": true,
-
   "scripts": {
     "fetch-service-definitions": "ts-node scripts/fetch-service-spec-cli.ts",
     "prettier": "prettier scripts -w"
   },
   "license": "Apache-2.0",
-  "dependencies": {
-
-  },
+  "dependencies": {},
   "devDependencies": {
     "dotenv": "^16.0.1",
     "typescript": "^4.1.3",
