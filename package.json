@@ -1,5 +1,5 @@
 {
-  "name": "sap-cloud-sdk-samples-meta-dependencies",
+  "name": "@sap-cloud-sdk/samples",
   "version": "1.0.0",
   "private": true,
   "scripts": {

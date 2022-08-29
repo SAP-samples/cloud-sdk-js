@@ -1,5 +1,5 @@
 {
-  "name": "cap-e2e-app",
+  "name": "@sap-cloud-sdk/samples",
   "version": "0.0.1",
   "description": "SAP Cloud SDK for JS - Test application for CAP",
   "author": "",

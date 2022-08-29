@@ -1,5 +1,5 @@
 {
-  "name": "e2e-tests",
+  "name": "@sap-cloud-sdk/sample",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
