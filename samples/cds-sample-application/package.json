@@ -25,7 +25,7 @@
     "ci-package": "rimraf deployment && mkdir deployment && cp -r dist package.json package-lock.json db srv .cdsrc.json deployment/",
     "cds-build": "cds build/all",
     "cds-deploy": "cds deploy",
-    "generate-client": "npx generate-odata-client --inputDir resources/service-specs --outputDir src/generated --clearOutputDir --generateJs=false --serviceMapping resources/service-specs/service-mapping.json"
+    "generate-client": "npx generate-odata-client --inputDir resources/service-specs --outputDir src/generated --clearOutputDir --generateJs=false --serviceMapping=resources/service-specs/service-mapping.json"
   },
   "dependencies": {
     "@nestjs/common": "^8.4.7",

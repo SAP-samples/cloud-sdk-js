@@ -1,5 +1,5 @@
 {
-  "name": "http-client-examples",
+  "name": "@sap-cloud-sdk/samples",
   "version": "1.0.0",
   "description": "SAP Cloud SDK for JS - Examples on HTTP Client",
   "scripts": {

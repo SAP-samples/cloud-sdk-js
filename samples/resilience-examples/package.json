@@ -10,7 +10,7 @@
     "lint": "eslint \"src/**/*.ts\" && yarn prettier .",
     "lint:fix": "eslint \"src/**/*.ts\" --fix && yarn prettier . -w",
     "test": "jest",
-    "generate-client": "npx generate-odata-client --inputDir resources/service-specs --outputDir src/generated --clearOutputDir --generateJs=false --serviceMapping resources/service-specs/service-mapping.json"
+    "generate-client": "npx generate-odata-client --inputDir resources/service-specs --outputDir src/generated --clearOutputDir --generateJs=false --serviceMapping=resources/service-specs/service-mapping.json"
   },
   "dependencies": {
     "@sap-cloud-sdk/odata-v2": "2.7.1",

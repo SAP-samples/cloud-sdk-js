@@ -22,7 +22,7 @@
     "deploy": "npm run build && cf push",
     "deploy:docker": "npm run build && docker build -t docker-cloudsdk.docker.repositories.sap.ondemand.com/k8s-e2e-app:latest . && docker push docker-cloudsdk.docker.repositories.sap.ondemand.com/k8s-e2e-app:latest",
     "deploy:pipeline": "docker build -t docker-cloudsdk.docker.repositories.sap.ondemand.com/sdkjs-k8s-pipeline:latest ./pipeline && docker push docker-cloudsdk.docker.repositories.sap.ondemand.com/sdkjs-k8s-pipeline:latest",
-    "generate-client": "npx generate-odata-client --inputDir resources/service-specs --outputDir src/generated --clearOutputDir --generateJs=false --serviceMapping resources/service-specs/service-mapping.json"
+    "generate-client": "npx generate-odata-client --inputDir resources/service-specs --outputDir src/generated --clearOutputDir --generateJs=false --serviceMapping=resources/service-specs/service-mapping.json"
   },
   "dependencies": {
     "@nestjs/common": "9.0.11",
