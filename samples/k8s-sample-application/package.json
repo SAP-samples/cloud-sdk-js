@@ -1,9 +1,9 @@
 {
-  "name": "sap-cloud-sdk-sample-application",
+  "name": "@sap-cloud-sdk/samples",
   "version": "0.0.1",
   "description": "SAP Cloud SDK for JS - Sample application",
   "private": true,
-  "license": "UNLICENSED",
+  "license": "Apache-2.0",
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "nest build",
