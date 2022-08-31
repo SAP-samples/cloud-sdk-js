@@ -34,6 +34,11 @@ git clone \
 cd cloud-sdk-js
 git sparse-checkout set samples/cds-sample-application
 ```
+### Generate oData Client
+
+The [Business Partner service cloud](https://api.sap.com/api/API_BUSINESS_PARTNER/overview) service definitions in `EDMX` format is already downloaded in the folder `resources/service-specs`. The client is generated using the `npm run generate-client` command. This command is executed automatically in the `postinstall` step after you execute `npm i `.
+
+**Note** These service is licensed under the terms of [SAP API Information License](../../LICENSES/LicenseRef-API-Definition-File-License.txt). This limits its use to development purposes only.
 
 ### Create Services on SAP BTP Cloud Foundry
 Before you can deploy the application, you have to create a `destination`and `xsuaa` service instance.

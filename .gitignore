@@ -43,6 +43,5 @@ cypress.env.json
 # Ignore cypress screenshots and videos
 screenshots
 videos
-**/resources/service-specs/*.edmx
 .env
 generated

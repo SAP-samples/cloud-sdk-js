@@ -5,6 +5,7 @@
   "private": true,
   "license": "Apache-2.0",
   "scripts": {
+    "postinstall": "npm run generate-client",
     "prebuild": "rimraf dist",
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
@@ -18,7 +19,6 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-    "ci-build": "echo \"Use this to compile or minify your application\"",
     "deploy": "npm run build && cf push",
     "deploy:docker": "npm run build && docker build -t docker-cloudsdk.docker.repositories.sap.ondemand.com/k8s-e2e-app:latest . && docker push docker-cloudsdk.docker.repositories.sap.ondemand.com/k8s-e2e-app:latest",
     "deploy:pipeline": "docker build -t docker-cloudsdk.docker.repositories.sap.ondemand.com/sdkjs-k8s-pipeline:latest ./pipeline && docker push docker-cloudsdk.docker.repositories.sap.ondemand.com/sdkjs-k8s-pipeline:latest",

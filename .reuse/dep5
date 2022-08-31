@@ -27,3 +27,7 @@ Disclaimer: The code in this project may include calls to APIs (“API Calls”)
 Files: *
 Copyright: 2021 SAP SE or an SAP affiliate company and SAP-samples/cloud-sdk-js contributors
 License: Apache-2.0
+
+Files: **/resources/service-specs/*.edmx
+Copyright: 2021 SAP SE or an SAP affiliate company and SAP-samples/cloud-sdk-js contributors
+License: LicenseRef-API-Definition-File-License

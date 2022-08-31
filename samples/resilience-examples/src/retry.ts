@@ -1,4 +1,4 @@
-import { BusinessPartner } from '@sap/cloud-sdk-vdm-business-partner-service';
+import { BusinessPartner } from './generated/cloud-business-partner-service';
 import retry from 'async-retry';
 import { createLogger } from '@sap-cloud-sdk/util';
 import { getAllBusinessPartner } from './business-partner-request';
