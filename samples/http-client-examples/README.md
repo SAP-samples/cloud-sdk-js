@@ -4,7 +4,7 @@ Examples for using the HTTP Client in SAP Cloud SDK for JavaScript.
 
 Refer to [the documentation](https://sap.github.io/cloud-sdk/docs/js/features/connectivity/generic-http-client) for a description of HTTP Client.
 
-The examples are implemented in [http-client.spec.ts](./http-client.spec.ts).
+The examples are implemented in [http-client.spec.ts](./http-client.spec.ts) and in [http-client-httpbin.spec.ts](./http-client-httpbin.spec.ts).
 The purpose of those examples is to provide usable sample code for the examples mentioned the documentation.
 
 ## Instructions to run locally

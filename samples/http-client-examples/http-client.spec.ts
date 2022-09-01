@@ -1,14 +1,21 @@
 import {
   executeHttpRequest,
-  executeHttpRequestWithOrigin,
-} from "@sap-cloud-sdk/http-client";
-import app from "./server";
+  executeHttpRequestWithOrigin
+} from '@sap-cloud-sdk/http-client';
+import app from './server';
+
+/* 
+
+This spec file includes usage examples for the HTTP client that make use of the HTTP server in `server.ts`.
+The server is automatically started and stopped by the test runner.
+
+*/
 
 let myApp: any;
 
 const SERVER_PORT = process.env.SERVER_PORT || 8181;
 
-describe("HTTP Client Usage Examples", () => {
+describe('HTTP Client Usage Examples', () => {
   beforeAll(() => {
     myApp = app.listen(SERVER_PORT, () => {
       console.log(`Server listening on port ${SERVER_PORT}`);
@@ -17,26 +24,73 @@ describe("HTTP Client Usage Examples", () => {
   afterAll(() => {
     myApp.close();
   });
-  it("Show usage of fetchCsrfToken", async () => {
-    const csrfTokenResponse = await executeHttpRequest(
+  it('Show simple usage of HTTP GET', async () => {
+    const response = await executeHttpRequest(
       {
-        url: `http://localhost:${SERVER_PORT}/`,
+        url: `http://localhost:${SERVER_PORT}/`
       },
       {
-        method: "post",
-        url: "csrf-token",
-      },
-      {
-        fetchCsrfToken: true,
+        method: 'GET'
       }
     );
 
-    expect(csrfTokenResponse).toBeDefined();
-    expect(csrfTokenResponse.status).toBe(200);
-    expect(csrfTokenResponse.data).toEqual("Request with token");
+    expect(response).toBeDefined();
+    expect(response.status).toBe(200);
+  });
+  it('Show usage of fetchCsrfToken (manually enabled)', async () => {
+    const response = await executeHttpRequest(
+      {
+        url: `http://localhost:${SERVER_PORT}/`
+      },
+      {
+        method: 'post',
+        url: 'csrf-token'
+      },
+      {
+        fetchCsrfToken: true
+      }
+    );
+
+    expect(response).toBeDefined();
+    expect(response.status).toBe(200);
+    expect(response.data).toEqual('Request with token');
   });
 
-  it("Show usage of custom parameter encoding function", async () => {
+  it('Show usage of fetchCsrfToken (automatically enabled)', async () => {
+    const response = await executeHttpRequest(
+      {
+        url: `http://localhost:${SERVER_PORT}/`
+      },
+      {
+        method: 'post',
+        url: 'csrf-token'
+      }
+    );
+
+    expect(response).toBeDefined();
+    expect(response.status).toBe(200);
+    expect(response.data).toEqual('Request with token');
+  });
+
+  it('Show post request without fetching a Csrf Token', async () => {
+    const response = await executeHttpRequest(
+      {
+        url: `http://localhost:${SERVER_PORT}/`
+      },
+      {
+        method: 'post',
+        url: 'post-without-csrf-token'
+      },
+      {
+        fetchCsrfToken: false
+      }
+    );
+
+    expect(response).toBeDefined();
+    expect(response.status).toBe(200);
+  });
+
+  it('Show usage of custom parameter encoding function', async () => {
     const myCustomParameterEncodingFunction = function (
       params: Record<string, any>
     ): Record<string, any> {
@@ -49,71 +103,69 @@ describe("HTTP Client Usage Examples", () => {
       return encodedParams;
     };
 
-    const encodingResponse = await executeHttpRequest(
+    const response = await executeHttpRequest(
       {
-        url: `http://localhost:${SERVER_PORT}/encoding`,
+        url: `http://localhost:${SERVER_PORT}/encoding`
       },
       {
-        method: "get",
+        method: 'get',
         params: {
           custom: {
-            customParam: "a/b c>d<e`f\\g",
+            customParam: 'a/b c>d<e`f\\g'
           },
           requestConfig: {
-            requestParam: "a/b c>d<e`f\\g",
-          },
+            requestParam: 'a/b c>d<e`f\\g'
+          }
         },
-        parameterEncoder: myCustomParameterEncodingFunction,
+        parameterEncoder: myCustomParameterEncodingFunction
       }
     );
 
-    expect(encodingResponse).toBeDefined();
-    expect(encodingResponse.status).toBe(200);
-    expect(encodingResponse.data).toEqual(
-      "/encoding?requestParam=a/b%20c%3Ed%3Ce%60f%5Cg&customParam=a/b%20c%3Ed%3Ce%60f%5Cg"
+    expect(response).toBeDefined();
+    expect(response.status).toBe(200);
+    expect(response.data).toEqual(
+      '/encoding?requestParam=a/b%20c%3Ed%3Ce%60f%5Cg&customParam=a/b%20c%3Ed%3Ce%60f%5Cg'
     );
   });
 
-  it("Show usage of request with origin", async () => {
-    const originResponse = await executeHttpRequestWithOrigin(
+  it('Show usage of request with origin', async () => {
+    const response = await executeHttpRequestWithOrigin(
       {
-        url: `http://localhost:${SERVER_PORT}/`,
+        url: `http://localhost:${SERVER_PORT}/`
       },
       {
-        method: "get",
-        url: "/origin",
+        method: 'get',
+        url: '/origin',
         headers: {
-          custom: { apiKey: "custom-header" },
-          requestConfig: { apiKey: "default-header" },
+          custom: { apiKey: 'custom-header' },
+          requestConfig: { apiKey: 'default-header' }
         },
         params: {
-          custom: { myParam: "custom-param" },
-          requestConfig: { myParam: "default-param" },
-        },
+          custom: { myParam: 'custom-param' },
+          requestConfig: { myParam: 'default-param' }
+        }
       }
     );
 
-    expect(originResponse).toBeDefined();
-    expect(originResponse.status).toBe(200);
-    expect(originResponse.data.apikey).toEqual("custom-header");
-    expect(originResponse.data.requestUrl).toEqual(
-      "/origin?myParam=custom-param"
-    );
+    expect(response).toBeDefined();
+    expect(response.status).toBe(200);
+    expect(response.data.apikey).toEqual('custom-header');
+    expect(response.data.requestUrl).toEqual('/origin?myParam=custom-param');
   });
 
-  it("Show usage of request with local destination", async () => {
+  it('Show usage of request with local destination', async () => {
     process.env[
-      "destinations"
+      'destinations'
     ] = `[{"name": "MyLocalDestination", "url": "http://localhost:${SERVER_PORT}"}]`;
-    expect(process.env["destinations"]).toBeDefined();
+    expect(process.env['destinations']).toBeDefined();
 
-    const localDestinationResponse = await executeHttpRequest(
-      { destinationName: "MyLocalDestination" },
-      { method: "get", url: "/ping" }
+    const response = await executeHttpRequest(
+      { destinationName: 'MyLocalDestination' },
+      { method: 'get', url: '/ping' }
     );
 
-    expect(localDestinationResponse).toBeDefined();
-    expect(localDestinationResponse.status).toBe(200);
-    expect(localDestinationResponse.data).toEqual("pong");
+    expect(response).toBeDefined();
+    expect(response.status).toBe(200);
+    expect(response.data).toEqual('pong');
   });
 });
