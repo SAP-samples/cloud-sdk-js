@@ -49,8 +49,8 @@ describe('HTTP Client Usage Examples using httpbin.org', () => {
       {
         method: 'get',
         params: {
-          customParam: 'a/bx',
-          requestParam: 'a/bx'
+          param1: 'a/bx',
+          param2: 'x1'
         },
         // Pass your custom encoding function
         parameterEncoder: myCustomParameterEncodingFunction
@@ -58,8 +58,8 @@ describe('HTTP Client Usage Examples using httpbin.org', () => {
     );
 
     expect(response.data.args).toEqual({
-      customParam: 'a/by',
-      requestParam: 'a/by'
+      param1: 'a/by',
+      param2: 'y1'
     });
   });
 
