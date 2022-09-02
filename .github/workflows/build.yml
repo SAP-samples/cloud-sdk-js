@@ -10,7 +10,14 @@ permissions:
     pull-requests: write
     contents: write
 jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: REUSE Compliance Check
+        uses: fsfe/reuse-action@v1
   tests:
+    needs: [checks]
     runs-on: ${{ matrix.os }}
     timeout-minutes: 15
     strategy:
@@ -48,9 +55,6 @@ jobs:
         run:  |
          cd samples/http-client-examples
           npm run test
-
-
-
   dependabot:
       needs: tests
       runs-on: ubuntu-latest

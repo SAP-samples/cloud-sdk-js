@@ -1,4 +1,4 @@
-import { businessPartnerService } from '@sap/cloud-sdk-vdm-business-partner-service';
+import { cloudBusinessPartnerService as businessPartnerService } from '../generated/cloud-business-partner-service';
 const { businessPartnerApi } = businessPartnerService();
 
 /**

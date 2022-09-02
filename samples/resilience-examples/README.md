@@ -10,3 +10,9 @@ They are meant as a blueprint to illustrate how resilience can be achieved, but 
 - In `src/retry.ts` the async-retry wrapper is used to retry failed requests.
 
 There is always a `*.spec.ts` file next to the examples which shows the actual execution and that the libraries show the expected behaviour.
+
+### Generate oData Client
+
+The [Business Partner service cloud](https://api.sap.com/api/API_BUSINESS_PARTNER/overview) service definitions in `EDMX` format is already downloaded in the folder `resources/service-specs`. The client is generated using the `npm run generate-client` command. This command is executed automatically in the `postinstall` step after you execute `npm i `.
+
+**Note** These service is licensed under the terms of [SAP API Information License](../../LICENSES/LicenseRef-API-Definition-File-License.txt). This limits its use to development purposes only.

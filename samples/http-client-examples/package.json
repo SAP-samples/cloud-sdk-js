@@ -1,10 +1,11 @@
 {
-  "name": "http-client-examples",
+  "name": "@sap-cloud-sdk/samples",
   "version": "1.0.0",
-  "description": "",
+  "description": "SAP Cloud SDK for JS - Examples on HTTP Client",
   "scripts": {
     "test": "jest"
   },
+  "license": "Apache-2.0",
   "keywords": [],
   "author": "",
   "dependencies": {

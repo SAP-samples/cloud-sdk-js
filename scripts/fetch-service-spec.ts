@@ -52,13 +52,13 @@ export async function writeFilesToServiceSpecFolder(specRoot: string) {
   await writeServiceDefintion(
     specRoot,
     contentCloud,
-    'cloud-business-partner-service.edmx'
+    'API_BUSINESS_PARTNER.edmx'
   );
   const contentOp = await fetchApiContent('OP_API_BUSINESS_PARTNER_SRV');
   await writeServiceDefintion(
     specRoot,
     contentOp,
-    'op-business-partner-service.edmx'
+    'OP_API_BUSINESS_PARTNER_SRV.edmx'
   );
   await createServiceMapping(specRoot);
 }
@@ -70,12 +70,12 @@ async function cleanUp(specRoot: string) {
 
 async function createServiceMapping(specRoot: string) {
   const content = {
-    'cloud-business-partner-service': {
+    'API_BUSINESS_PARTNER': {
       directoryName: 'cloud-business-partner-service',
       servicePath: '/sap/opu/odata/sap/API_BUSINESS_PARTNER',
       npmPackageName: 'cloud-business-partner-service'
     },
-    'op-business-partner-service': {
+    'OP_API_BUSINESS_PARTNER_SRV': {
       directoryName: 'op-business-partner-service',
       servicePath: '/sap/opu/odata/sap/API_BUSINESS_PARTNER',
       npmPackageName: 'op-business-partner-service'

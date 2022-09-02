@@ -5,6 +5,7 @@
   "private": true,
   "license": "Apache-2.0",
   "scripts": {
+    "postinstall": "npm run generate-client",
     "prebuild": "rimraf dist",
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
@@ -12,7 +13,8 @@
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
-    "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
+    "lint": "eslint \"src/**/*.ts\" && yarn prettier .",
+    "lint:fix": "eslint \"src/**/*.ts\" --fix && yarn prettier . -w",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
@@ -22,7 +24,7 @@
     "deploy": "npm run build && cf push",
     "deploy:docker": "npm run build && docker build -t docker-cloudsdk.docker.repositories.sap.ondemand.com/k8s-e2e-app:latest . && docker push docker-cloudsdk.docker.repositories.sap.ondemand.com/k8s-e2e-app:latest",
     "deploy:pipeline": "docker build -t docker-cloudsdk.docker.repositories.sap.ondemand.com/sdkjs-k8s-pipeline:latest ./pipeline && docker push docker-cloudsdk.docker.repositories.sap.ondemand.com/sdkjs-k8s-pipeline:latest",
-    "generate-client": "npx generate-odata-client --inputDir resources/service-specs --outputDir src/generated --clearOutputDir --generateJs=false"
+    "generate-client": "npx generate-odata-client --inputDir resources/service-specs --outputDir src/generated --clearOutputDir --generateJs=false  --serviceMapping=resources/service-specs/service-mapping.json"
   },
   "dependencies": {
     "@nestjs/common": "9.0.11",
