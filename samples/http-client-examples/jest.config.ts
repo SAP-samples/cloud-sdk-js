@@ -1,4 +1,4 @@
 export default {
   clearMocks: true,
-  preset: "ts-jest",
+  preset: 'ts-jest'
 };
