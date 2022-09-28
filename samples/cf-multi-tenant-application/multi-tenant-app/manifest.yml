@@ -1,0 +1,11 @@
+applications:
+  - name: multi-tenant-app
+    path: .
+    memory: 256M
+    buildpacks:
+      - nodejs_buildpack
+    services:
+      - destination
+      - xsuaa
+    routes:
+      - route: 'multi-tenant-app.cfapps.eu10.hana.ondemand.com'

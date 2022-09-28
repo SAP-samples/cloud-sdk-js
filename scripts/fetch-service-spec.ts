@@ -70,12 +70,12 @@ async function cleanUp(specRoot: string) {
 
 async function createServiceMapping(specRoot: string) {
   const content = {
-    'API_BUSINESS_PARTNER': {
+    API_BUSINESS_PARTNER: {
       directoryName: 'cloud-business-partner-service',
       servicePath: '/sap/opu/odata/sap/API_BUSINESS_PARTNER',
       npmPackageName: 'cloud-business-partner-service'
     },
-    'OP_API_BUSINESS_PARTNER_SRV': {
+    OP_API_BUSINESS_PARTNER_SRV: {
       directoryName: 'op-business-partner-service',
       servicePath: '/sap/opu/odata/sap/API_BUSINESS_PARTNER',
       npmPackageName: 'op-business-partner-service'

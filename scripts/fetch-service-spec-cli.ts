@@ -11,13 +11,13 @@ const cfSampleApplication = resolve(
 writeFilesToServiceSpecFolder(cfSampleApplication);
 
 const helmSampleApplication = resolve(
-    __dirname,
-    '../samples/helm-sample-application/application/resources/service-specs'
+  __dirname,
+  '../samples/helm-sample-application/application/resources/service-specs'
 );
 writeFilesToServiceSpecFolder(helmSampleApplication);
 
 const k8sSampleApplication = resolve(
-    __dirname,
-    '../samples/k8s-sample-application/resources/service-specs'
+  __dirname,
+  '../samples/k8s-sample-application/resources/service-specs'
 );
 writeFilesToServiceSpecFolder(k8sSampleApplication);
