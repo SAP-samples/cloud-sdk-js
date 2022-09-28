@@ -41,7 +41,7 @@
   },
   "devDependencies": {
     "@sap-cloud-sdk/generator": "2.9.0",
-    "@nestjs/cli": "^9.1.3",
+    "@nestjs/cli": "^9.1.4",
     "@nestjs/schematics": "^9.0.3",
     "@nestjs/testing": "^8.4.7",
     "@sap-cloud-sdk/test-util": "^2.9.0",
