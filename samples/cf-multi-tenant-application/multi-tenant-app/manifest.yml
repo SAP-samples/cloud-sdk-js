@@ -8,4 +8,4 @@ applications:
       - destination
       - xsuaa
     routes:
-      - route: 'multi-tenant-app.cfapps.eu10.hana.ondemand.com'
+      - route: 'multi-tenant-app.cfapps.YOUR_REGION.hana.ondemand.com'

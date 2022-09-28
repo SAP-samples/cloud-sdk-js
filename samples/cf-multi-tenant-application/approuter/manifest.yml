@@ -1,16 +1,16 @@
 applications:
   - name: approuter
     routes:
-      - route: 'route-prefix-s4sdk.cfapps.eu10.hana.ondemand.com'
+      - route: 'route-prefix-YOUR_SUBDOMAIN.cfapps.YOUR_REGION.hana.ondemand.com'
     path: .
     memory: 128M
     buildpacks:
       - nodejs_buildpack
     env:
-      TENANT_HOST_PATTERN: 'route-prefix-(.*).cfapps.eu10.hana.ondemand.com'
+      TENANT_HOST_PATTERN: 'route-prefix-(.*).cfapps.YOUR_REGION.hana.ondemand.com'
       destinations: >
         [
-          {"name":"multi-tenant-app","url":"https://multi-tenant-app.cfapps.eu10.hana.ondemand.com","forwardAuthToken":true}
+          {"name":"multi-tenant-app","url":"https://multi-tenant-app.cfapps.YOUR_REGION.hana.ondemand.com","forwardAuthToken":true}
         ]
     services:
       - xsuaa
