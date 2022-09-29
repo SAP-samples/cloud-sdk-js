@@ -1,6 +1,6 @@
 # SAP Cloud SDK for JavaScript Multi-Tenant Sample Application
 
-This code samples in this directory are a reference for the [multi-tenant application](https://sap.github.io/cloud-sdk/docs/js/tutorials/multi-tenant-application) tutorial.
+The code sample in this directory is a reference for the [multi-tenant application](https://sap.github.io/cloud-sdk/docs/js/tutorials/multi-tenant-application) tutorial.
 You need to make adjustments to the code before deployment described in the tutorial.
 
 Also note that the samples here are intended as a didactic example and are not necessary a best practice.
