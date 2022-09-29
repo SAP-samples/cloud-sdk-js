@@ -1,6 +1,5 @@
 import { Request, Response } from 'express';
 import { createLogger } from '@sap-cloud-sdk/util';
-import { executeHttpRequest } from '@sap-cloud-sdk/http-client';
 import {
   bindRoute,
   createRoute,
