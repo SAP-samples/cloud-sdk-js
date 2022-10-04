@@ -10,9 +10,9 @@
     "express": "^4",
     "@sap/xsenv": "^3.3.2",
     "cfenv": "^1.2.4",
-    "@sap-cloud-sdk/util": "canary",
-    "@sap-cloud-sdk/connectivity": "canary",
-    "@sap-cloud-sdk/http-client": "canary",
+    "@sap-cloud-sdk/util": "^2.9.0",
+    "@sap-cloud-sdk/connectivity": "^2.9.0",
+    "@sap-cloud-sdk/http-client": "^2.9.0",
     "@types/node": "^16.0.0",
     "ts-node": "^10",
     "typescript": "^4"
