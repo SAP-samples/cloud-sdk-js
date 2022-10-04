@@ -12,9 +12,9 @@ const logger = createLogger('destination');
 export async function serviceRoute(req: Request, res: Response): Promise<void> {
   try {
     const jwt = retrieveJwt(req);
-    const tenantId = jwt
-      ? decodeJwt(jwt).zid
-      : `No jwt given - provider tenant`;
+    const tenantText = jwt
+      ? `You are on tenant: ${decodeJwt(jwt).zid}.`
+      : `No jwt given in request. Provider tenant used.`;
     const destination = await getDestination({
       destinationName: 'myDestination',
       selectionStrategy: subscriberFirst,
@@ -22,8 +22,8 @@ export async function serviceRoute(req: Request, res: Response): Promise<void> {
     });
     if (destination) {
       res.status(200).send(
-        `You are on tenant: ${tenantId}. 
-           The destination description is: ${destination.originalProperties.Description}.`
+        `${tenantText}. 
+         The destination description is: ${destination.originalProperties.Description}.`
       );
     } else {
       res.status(404).send(`Destination with name 'myDestination' not found.`);
