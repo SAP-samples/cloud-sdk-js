@@ -4,7 +4,7 @@
 
 The code sample in this directory is a reference for the [multi-tenant application tutorial](https://sap.github.io/cloud-sdk/docs/js/tutorials/multi-tenant-application).
 You need to make adjustments to the code before deployment.
-The terms you need to replace are given in all caps and start with _`YOUR_`_ e.g. _`YOUR*REGION`*.
+The terms you need to replace are given in all caps and start with _`YOUR_`_ e.g. _`YOUR_REGION`_.
 
 Also, note that the samples here are intended as a didactic example and are not necessarily a best practice.
 The repositories' structure is as follows:
