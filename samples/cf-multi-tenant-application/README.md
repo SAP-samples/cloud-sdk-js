@@ -7,7 +7,7 @@ You need to make adjustments to the code before deployment.
 The terms you need to replace are given in all caps and start with _`YOUR_`_ e.g. _`YOUR*REGION`*.
 
 Also, note that the samples here are intended as a didactic example and are not necessarily a best practice.
-The repositories' structure is as following:
+The repositories' structure is as follows:
 
 - [./multi-tenant-app](./multi-tenant-app) - Contains the code of the multi-tenant application.
   It contains a simple service endpoint and logic to be executed on subscription and unsubscription.
@@ -38,12 +38,12 @@ git clone \
   https://github.com/SAP-samples/cloud-sdk-js.git \
 ;
 cd cloud-sdk-js
-git sparse-checkout set samples/cf-.ulti-tenant-application
+git sparse-checkout set samples/cf-multi-tenant-application
 ```
 
 ### Create Services on SAP BTP Cloud Foundry
 
-Before you can deploy the application, you have to create a `destination`and `xsuaa` service instance.
+Before you can deploy the application, you have to create a `destination` and `xsuaa` service instance.
 Their name should match the one that is used in the application `manifest.yml`, in this case:
 
 - `destination`
