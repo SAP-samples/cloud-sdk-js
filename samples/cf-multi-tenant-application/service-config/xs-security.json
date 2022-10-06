@@ -1,0 +1,27 @@
+{
+  "xsappname": "xs-multi-tenant-sample-app",
+  "tenant-mode": "shared",
+  "oauth2-configuration": {
+    "credential-types": ["instance-secret"]
+  },
+  "scopes": [
+    {
+      "name": "$XSAPPNAME.Display",
+      "description": "display"
+    },
+    {
+      "name": "$XSAPPNAME.Callback",
+      "description": "With this scope set, the callbacks for tenant onboarding, offboarding and getDependencies can be called (according to the docs at least, we don't actually check for any scopes in our e2e test app).",
+      "grant-as-authority-to-apps": [
+        "$XSAPPNAME(application,sap-provisioning,tenant-onboarding)"
+      ]
+    }
+  ],
+  "role-templates": [
+    {
+      "name": "Viewer",
+      "description": "Required to view things in our solution",
+      "scope-references": ["$XSAPPNAME.Display", "uaa.user"]
+    }
+  ]
+}
