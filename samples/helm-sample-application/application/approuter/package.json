@@ -1,7 +1,7 @@
 {
   "name": "approuter",
   "dependencies": {
-    "@sap/approuter": "11.5.0",
+    "@sap/approuter": "11.6.0",
     "package.json": "2.0.1"
   },
   "scripts": {
