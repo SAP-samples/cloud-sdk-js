@@ -39,7 +39,7 @@
     "webpack": "5.74.0"
   },
   "devDependencies": {
-    "@nestjs/cli": "9.1.4",
+    "@nestjs/cli": "9.1.5",
     "@nestjs/schematics": "9.0.3",
     "@nestjs/testing": "9.1.6",
     "@sap-cloud-sdk/test-util": "2.9.0",
