@@ -30,7 +30,7 @@
     "@nestjs/platform-express": "9.1.6",
     "@sap-cloud-sdk/connectivity": "2.9.0",
     "@sap-cloud-sdk/odata-v2": "2.9.0",
-    "@sap/xsenv": "3.3.2",
+    "@sap/xsenv": "3.4.0",
     "@sap/xssec": "3.2.14",
     "passport": "0.6.0",
     "reflect-metadata": "0.1.13",
