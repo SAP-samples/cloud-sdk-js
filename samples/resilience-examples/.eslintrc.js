@@ -6,11 +6,11 @@ module.exports = {
     project: {
       extends: 'tsconfig.json',
       include: ['**/*.ts'],
-      exclude: []
+      exclude: ['**/generated/**']
     },
     sourceType: 'module'
   },
-  ignorePatterns: [],
+  ignorePatterns: ['generated'],
   plugins: ['@typescript-eslint', 'header', 'import', 'prettier'],
   rules: {},
   overrides: []
