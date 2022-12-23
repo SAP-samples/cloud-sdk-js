@@ -33,7 +33,7 @@ describe('AppController (e2e)', () => {
       .get(/.*/)
       .reply(200);
 
-    return request(app.getHttpServer())
+    return request.default(app.getHttpServer())
       .get('/bupa/getAll()')
       .expect(200)
       .expect({"@odata.context":"$metadata#CapBusinessPartner","value":[]});
