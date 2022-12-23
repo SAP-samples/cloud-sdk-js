@@ -13,16 +13,16 @@
     "generate-client": "npx generate-odata-client --inputDir resources/service-specs --outputDir src/generated --clearOutputDir --generateJs=false --serviceMapping=resources/service-specs/service-mapping.json"
   },
   "dependencies": {
-    "@sap-cloud-sdk/odata-v2": "2.7.1",
-    "@sap-cloud-sdk/util": "^2.0.0",
+    "@sap-cloud-sdk/odata-v2": "3.0.0-20221221165657.0",
+    "@sap-cloud-sdk/util": "^3.0.0-20221221165657.0",
     "@types/async-retry": "^1.4.3",
     "@types/opossum": "^6.2.0",
     "async-retry": "^1.3.3",
     "opossum": "^6.3.0"
   },
   "devDependencies": {
-    "@sap-cloud-sdk/generator": "2.7.1",
-    "@sap-cloud-sdk/test-util": "^2.0.0",
+    "@sap-cloud-sdk/generator": "3.0.0-20221221165657.0",
+    "@sap-cloud-sdk/test-util": "^3.0.0-20221221165657.0",
     "@types/jest": "^27.4.0",
     "@typescript-eslint/eslint-plugin": "^5.21.0",
     "@typescript-eslint/parser": "^5.33.1",

@@ -9,8 +9,8 @@
   "keywords": [],
   "author": "",
   "dependencies": {
-    "@sap-cloud-sdk/http-client": "^2.7.1",
-    "@sap-cloud-sdk/util": "^2.7.1",
+    "@sap-cloud-sdk/http-client": "^3.0.0-20221221165657.0",
+    "@sap-cloud-sdk/util": "^3.0.0-20221221165657.0",
     "concurrently": "^7.3.0",
     "express": "^4.18.1",
     "ts-node": "^10.9.1",
