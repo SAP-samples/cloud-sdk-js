@@ -11,7 +11,7 @@ import { cloudBusinessPartnerService } from './generated/cloud-business-partner-
  * The effect of the middleware is the same for the typed or untyped client.
  */
 describe('resilience', () => {
-  it('uses the middleware with the type client', async () => {
+  it('uses the default resilience middleware with the typed client', async () => {
     // Mock response for test
     nock('http://flaky-system.com')
       .get(/.*/)
@@ -20,7 +20,7 @@ describe('resilience', () => {
       .get(/.*/)
       .reply(503, {}) // just fails
       .get(/.*/)
-      .reply(200, { d: { results: [{ BusinessPartner: '123' }] } }); // just fails
+      .reply(200, { d: { results: [{ BusinessPartner: '123' }] } }); // works in the end to test the retry
 
     // Add a timeout (short for the test), circuit breaker and retry to the request
     const { businessPartnerApi } = cloudBusinessPartnerService();
@@ -32,7 +32,7 @@ describe('resilience', () => {
     expect(response).toEqual([{ businessPartner: '123' }]);
   }, 10000);
 
-  it('uses the default resilience of the SAP Cloud SDK', async () => {
+  it('uses the default resilience middleware with the generic client', async () => {
     // Mock response for test
     nock('http://falky-system.com')
       .get(/.*/)
@@ -41,7 +41,7 @@ describe('resilience', () => {
       .get(/.*/)
       .reply(503, {}) // just fails
       .get(/.*/)
-      .reply(200, 'Puh, the retry saved it.'); // just fails
+      .reply(200, 'Puh, the retry saved it.'); // works in the end to test the retry
 
     // Add a timeout (short for the test), circuit breaker and retry to the request
     const response = await executeHttpRequest(

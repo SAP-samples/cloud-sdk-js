@@ -16,7 +16,6 @@
     "@sap-cloud-sdk/odata-v2": "next",
     "@sap-cloud-sdk/http-client": "next",
     "@sap-cloud-sdk/connectivity": "next",
-    "@sap-cloud-sdk/util": "next",
     "@sap-cloud-sdk/resilience": "next",
     "@sap-cloud-sdk/generator": "next",
     "@sap-cloud-sdk/test-util": "next"
