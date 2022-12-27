@@ -69,7 +69,7 @@ describe('resilience', () => {
     expect(response.data).toEqual('Puh, fallback system is working.');
   });
 
-  it('uses a the custom fallback middleware together with a timeout.', async () => {
+  it('uses the custom fallback middleware together with a timeout.', async () => {
     // Mock response for test
     nock('http://slow-system.com').get(/.*/).delay(1000).reply(200, {});
     nock('http://working-system.com')
@@ -112,7 +112,7 @@ describe('resilience', () => {
     );
   });
 
-  it('it stops the middleware list if the logging middleware find unauthorized.', async () => {
+  it('skips other middlewares in the list if the logging middleware logs an unauthorized request.', async () => {
     // Mock response for test
     const mock = nock('http://unauthorized-system.com')
       .get(/.*/)

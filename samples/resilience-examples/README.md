@@ -3,7 +3,7 @@
 ## Description
 
 This folder contains a few simples examples about resilience and the SDK.
-It shows the usage of the default middlewares and also how you build your own resilience middleware.
+It shows the usage of the default resilience middlewares and also how to build and use a custom one.
 
 There are custom implementation examples of resilience middlewares in the `resilience.ts`.
 You find the usage in the `resilience.spec.ts` file.
