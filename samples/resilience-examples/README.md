@@ -2,7 +2,7 @@
 
 ## Description
 
-This folder contains a few simples examples about resilience and the SDK.
+This folder contains a few simple examples about resilience and the SDK.
 It shows the usage of the default resilience middlewares and also how to build and use a custom one.
 
 There are custom implementation examples of resilience middlewares in the `resilience.ts`.
