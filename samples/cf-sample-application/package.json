@@ -44,7 +44,7 @@
     "@nestjs/testing": "9.1.6",
     "@sap-cloud-sdk/test-util": "2.9.0",
     "@sap-cloud-sdk/generator": "2.14.0",
-    "@types/express": "4.17.15",
+    "@types/express": "4.17.17",
     "@types/jest": "29.2.5",
     "@types/node": "18.11.18",
     "@types/supertest": "2.0.12",
