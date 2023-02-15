@@ -1,5 +1,5 @@
 {
-  "name": "@sap-cloud-sdk/samples",
+  "name": "@sap-cloud-sdk/resilience-samples",
   "version": "0.0.1",
   "description": "SAP Cloud SDK for JS - Examples on Resilience",
   "author": "Frank Essenberger",
@@ -10,7 +10,8 @@
     "lint": "eslint \"src/**/*.ts\" && yarn prettier .",
     "lint:fix": "eslint \"src/**/*.ts\" --fix && yarn prettier . -w",
     "test": "jest",
-    "generate-client": "npx generate-odata-client --inputDir resources/service-specs --outputDir src/generated --clearOutputDir --generateJs=false --serviceMapping=resources/service-specs/service-mapping.json"
+    "generate-client": "npx generate-odata-client --inputDir resources/service-specs --outputDir src/generated --clearOutputDir --transpile=false --optionsPerService=resources/service-specs/service-mapping.json",
+    "clean-install": "rm -rf node_modules package-lock.json && npm i"
   },
   "dependencies": {
     "@sap-cloud-sdk/odata-v2": "next",
@@ -24,7 +25,7 @@
     "@types/jest": "^27.4.0",
     "@typescript-eslint/eslint-plugin": "^5.21.0",
     "@typescript-eslint/parser": "^5.33.1",
-    "@sap-cloud-sdk/eslint-config": "^2.11.0",
+    "@sap-cloud-sdk/eslint-config": "next",
     "eslint": "^8.30.0",
     "eslint-config-prettier": "^8.0.0",
     "eslint-plugin-header": "^3.0.0",

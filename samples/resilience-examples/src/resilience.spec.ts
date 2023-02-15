@@ -82,8 +82,8 @@ describe('resilience', () => {
       {
         method: 'get',
         middleware: [
-          timeout(500),
-          fallbackMiddleware({ url: 'http://working-system.com' })
+          fallbackMiddleware({ url: 'http://working-system.com' }),
+          timeout(500)
         ]
       }
     );
@@ -130,7 +130,7 @@ describe('resilience', () => {
           username: 'Peter',
           password: 'doesNotMatter'
         },
-        { method: 'get', middleware: [loggingMiddleware(), retry()] }
+        { method: 'get', middleware: [retry(), loggingMiddleware()] }
       )
     ).rejects.toThrowError(/403/);
     expect(mock.isDone()).toBe(false);

@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "fetch-service-definitions": "ts-node scripts/fetch-service-spec-cli.ts",
-    "prettier": "prettier scripts -w"
+    "prettier": "prettier scripts -w",
+    "clean-install": "npm run clean-install --workspaces",
+    "test": "npm run test --workspaces"
   },
   "license": "Apache-2.0",
   "dependencies": {},
@@ -14,5 +16,14 @@
     "ts-node": "^10.0.0",
     "axios": "^0.27.2",
     "prettier": "^2.7.1"
-  }
+  },
+  "workspaces": [
+    "samples/cds-sample-application",
+    "samples/cf-multi-tenant-application  ",
+    "samples/cf-sample-application",
+    "samples/helm-sample-application/application",
+    "samples/http-client-examples",
+    "samples/k8s-sample-application",
+    "samples/resilience-examples"
+  ]
 }

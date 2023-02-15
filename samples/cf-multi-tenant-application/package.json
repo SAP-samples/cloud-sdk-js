@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "format": "prettier --write . "
+    "format": "prettier --write . ",
+    "clean-install": "rm -rf node_modules package-lock.json && npm i"
   },
   "dependencies": {},
   "devDependencies": {
