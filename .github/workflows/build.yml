@@ -30,17 +30,31 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-      - name: Install all Dependencies
-        run: npm run ci --workspaces
       - name: CDS Samples - Install Dependencies and Build Package
+        run:  |
+         cd samples/cds-sample-application
+          npm install
+          npm run ci-build
       - name: CDS Samples - Tests
         run:  |
-          npm run ci-build --workspace=samples/cds-sample-application
-          npm run test:e2e --workspace=samples/cds-sample-application
+         cd samples/cds-sample-application
+          npm run test:e2e
+      - name: Resilience Examples - Install Dependencies
+        run:  |
+         cd samples/resilience-examples
+          npm install
       - name: Resilience Examples - Tests
-        run: npm run test --worksapce=samples/resilience-examples
+        run:  |
+         cd samples/resilience-examples
+          npm run test
+      - name: HTTP Client Examples - Install Dependencies
+        run:  |
+         cd samples/http-client-examples
+          npm ci
       - name: HTTP Client Examples - Tests
-        run: npm run test --workspace=samples/http-client-examples
+        run:  |
+         cd samples/http-client-examples
+          npm run test
   dependabot:
       needs: tests
       runs-on: ubuntu-latest

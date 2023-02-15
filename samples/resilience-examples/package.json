@@ -1,5 +1,5 @@
 {
-  "name": "@sap-cloud-sdk/resilience-samples",
+  "name": "@sap-cloud-sdk/samples",
   "version": "0.0.1",
   "description": "SAP Cloud SDK for JS - Examples on Resilience",
   "author": "Frank Essenberger",
@@ -10,8 +10,7 @@
     "lint": "eslint \"src/**/*.ts\" && yarn prettier .",
     "lint:fix": "eslint \"src/**/*.ts\" --fix && yarn prettier . -w",
     "test": "jest",
-    "generate-client": "npx generate-odata-client --inputDir resources/service-specs --outputDir src/generated --clearOutputDir --transpile=false --optionsPerService=resources/service-specs/service-mapping.json",
-    "clean-install": "rm -rf node_modules package-lock.json && npm i"
+    "generate-client": "npx generate-odata-client --inputDir resources/service-specs --outputDir src/generated --clearOutputDir --transpile=false --optionsPerService=resources/service-specs/service-mapping.json"
   },
   "dependencies": {
     "@sap-cloud-sdk/odata-v2": "next",
