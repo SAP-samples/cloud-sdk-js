@@ -1,6 +1,5 @@
-import { HttpMiddlewareContext, Middleware } from '@sap-cloud-sdk/resilience';
-import { HttpResponse, executeHttpRequest } from '@sap-cloud-sdk/http-client';
-import { Destination } from '@sap-cloud-sdk/connectivity';
+import { executeHttpRequest, HttpMiddleware } from '@sap-cloud-sdk/http-client';
+import { HttpDestination } from '@sap-cloud-sdk/connectivity';
 import { createLogger } from '@sap-cloud-sdk/util';
 
 /**
@@ -10,11 +9,11 @@ import { createLogger } from '@sap-cloud-sdk/util';
  * @returns The middleware adding a fallback.
  */
 export function fallbackMiddleware(
-  fallbackSystem: Destination
-): Middleware<HttpResponse, HttpMiddlewareContext> {
-  return options => async () => {
+  fallbackSystem: HttpDestination
+): HttpMiddleware {
+  return options => async arg => {
     try {
-      return await options.fn();
+      return await options.fn(arg);
     } catch (e) {
       return executeHttpRequest(fallbackSystem);
     }
@@ -28,18 +27,14 @@ const logger = createLogger('http-logs');
  * For this example basic authentication is assumed, but you could also decode a JWT and take the userId from there.
  * @returns The logging middleware.
  */
-export function loggingMiddleware(): Middleware<
-  HttpResponse,
-  HttpMiddlewareContext
-> {
-  return options => async () => {
+export function loggingMiddleware(): HttpMiddleware {
+  return options => async arg => {
     try {
-      return await options.fn();
+      return await options.fn(arg);
     } catch (err) {
-      const [authType, authorizationHeader] =
-        options.context.requestConfig.headers['authorization']
-          .toString()
-          .split(' ');
+      const [authType, authorizationHeader] = arg.headers['authorization']
+        .toString()
+        .split(' ');
       if (authType.toLowerCase() === 'basic' && err.response.status === 403) {
         const decoded = Buffer.from(authorizationHeader, 'base64').toString(
           'utf8'

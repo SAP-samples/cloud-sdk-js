@@ -1,7 +1,7 @@
 {
   "API_BUSINESS_PARTNER": {
     "directoryName": "cloud-business-partner-service",
-    "servicePath": "/sap/opu/odata/sap/API_BUSINESS_PARTNER",
+    "basePath": "/sap/opu/odata/sap/API_BUSINESS_PARTNER",
     "npmPackageName": "cloud-business-partner-service"
   }
 }
