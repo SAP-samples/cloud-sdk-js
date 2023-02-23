@@ -13,7 +13,7 @@ import { cloudBusinessPartnerService } from './generated/cloud-business-partner-
 describe('resilience', () => {
   it('uses the default resilience middleware with the typed client', async () => {
     // Mock response for test
-    nock('http://flaky-system.com')
+    nock('http://example.com/flaky')
       .get(/.*/)
       .delay(1000)
       .reply(200, {}) // will fail due to timeout
@@ -28,13 +28,13 @@ describe('resilience', () => {
       .requestBuilder()
       .getAll()
       .middleware(resilience({ retry: 2, timeout: 500 }))
-      .execute({ url: 'http://flaky-system.com' });
+      .execute({ url: 'http://example.com/flaky' });
     expect(response).toEqual([{ businessPartner: '123' }]);
   }, 10000);
 
   it('uses the default resilience middleware with the generic client', async () => {
     // Mock response for test
-    nock('http://falky-system.com')
+    nock('http://example.com/flaky')
       .get(/.*/)
       .delay(1000)
       .reply(200, {}) // will fail due to timeout
@@ -45,7 +45,7 @@ describe('resilience', () => {
 
     // Add a timeout (short for the test), circuit breaker and retry to the request
     const response = await executeHttpRequest(
-      { url: 'http://falky-system.com' },
+      { url: 'http://example.com/flaky' },
       { method: 'get', middleware: resilience({ retry: 2, timeout: 500 }) }
     );
     expect(response.data).toEqual('Puh, the retry saved it.');
@@ -53,17 +53,17 @@ describe('resilience', () => {
 
   it('uses the custom fallback middleware if system is down.', async () => {
     // Mock response for test
-    nock('http://failing-system.com').get(/.*/).reply(503);
-    nock('http://working-system.com')
+    nock('http://example.com/failing').get(/.*/).reply(503);
+    nock('http://example.com/working')
       .get(/.*/)
       .reply(200, 'Puh, fallback system is working.');
 
     // Add the custom middleware to the request to try the fallback system in case of errors
     const response = await executeHttpRequest(
-      { url: 'http://failing-system.com' },
+      { url: 'http://example.com/failing' },
       {
         method: 'get',
-        middleware: [fallbackMiddleware({ url: 'http://working-system.com' })]
+        middleware: [fallbackMiddleware({ url: 'http://example.com/working' })]
       }
     );
     expect(response.data).toEqual('Puh, fallback system is working.');
@@ -71,18 +71,18 @@ describe('resilience', () => {
 
   it('uses the custom fallback middleware together with a timeout.', async () => {
     // Mock response for test
-    nock('http://slow-system.com').get(/.*/).delay(1000).reply(200, {});
-    nock('http://working-system.com')
+    nock('http://example.com/slow').get(/.*/).delay(1000).reply(200, {});
+    nock('http://example.com/working')
       .get(/.*/)
       .reply(200, 'Puh, fallback system is working.');
 
     // Add a timeout and the custom fallback middleware to a request.
     const response = await executeHttpRequest(
-      { url: 'http://slow-system.com' },
+      { url: 'http://example.com/slow' },
       {
         method: 'get',
         middleware: [
-          fallbackMiddleware({ url: 'http://working-system.com' }),
+          fallbackMiddleware({ url: 'http://example.com/working' }),
           timeout(500)
         ]
       }
@@ -92,7 +92,7 @@ describe('resilience', () => {
 
   it('uses the custom logging middleware.', async () => {
     // Mock response for test
-    nock('http://unauthorized-system.com').get(/.*/).reply(403);
+    nock('http://example.com/unauthorized').get(/.*/).reply(403);
     const logger = createLogger('http-logs');
     const logSpy = jest.spyOn(logger, 'error');
 
@@ -100,7 +100,7 @@ describe('resilience', () => {
     await expect(
       executeHttpRequest(
         {
-          url: 'http://unauthorized-system.com',
+          url: 'http://example.com/unauthorized',
           username: 'Peter',
           password: 'doesNotMatter'
         },
@@ -114,7 +114,7 @@ describe('resilience', () => {
 
   it('skips other middlewares in the list if the logging middleware logs an unauthorized request.', async () => {
     // Mock response for test
-    const mock = nock('http://unauthorized-system.com')
+    const mock = nock('http://example.com/unauthorized')
       .get(/.*/)
       .times(2)
       .reply(403)
@@ -126,7 +126,7 @@ describe('resilience', () => {
     await expect(
       executeHttpRequest(
         {
-          url: 'http://unauthorized-system.com',
+          url: 'http://example.com/unauthorized',
           username: 'Peter',
           password: 'doesNotMatter'
         },
