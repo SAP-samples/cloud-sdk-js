@@ -70,19 +70,19 @@ async function cleanUp(specRoot: string) {
 
 async function createServiceMapping(specRoot: string) {
   const content = {
-    API_BUSINESS_PARTNER: {
+    'resources/service-specs/API_BUSINESS_PARTNER.edmx': {
       directoryName: 'cloud-business-partner-service',
-      servicePath: '/sap/opu/odata/sap/API_BUSINESS_PARTNER',
-      npmPackageName: 'cloud-business-partner-service'
+      basePath: '/sap/opu/odata/sap/API_BUSINESS_PARTNER',
+      packageName: 'cloud-business-partner-service'
     },
-    OP_API_BUSINESS_PARTNER_SRV: {
+    'resources/service-specs/OP_API_BUSINESS_PARTNER_SRV.edmx': {
       directoryName: 'op-business-partner-service',
-      servicePath: '/sap/opu/odata/sap/API_BUSINESS_PARTNER',
-      npmPackageName: 'op-business-partner-service'
+      basePath: '/sap/opu/odata/sap/API_BUSINESS_PARTNER',
+      packageName: 'op-business-partner-service'
     }
   };
   await writeFile(
-    join(specRoot, 'service-mapping.json'),
+    join(specRoot, 'options-per-service.json'),
     JSON.stringify(content, null, 2),
     { encoding: 'utf-8' }
   );

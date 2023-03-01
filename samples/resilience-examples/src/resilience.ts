@@ -44,7 +44,6 @@ export function loggingMiddleware(): HttpMiddleware {
             decoded.split(':')[0]
           } is not authorized to do the request.`
         );
-        options.skipNext();
       }
       throw err;
     }

@@ -3,6 +3,7 @@
 [![REUSE status](https://api.reuse.software/badge/github.com/SAP-samples/cloud-sdk-js)](https://api.reuse.software/info/github.com/SAP-samples/cloud-sdk-js)
 
 # SAP Cloud SDK  Samples
+
 ## Description
 This repository contains code [samples](./samples) showcasing the [SAP Cloud SDK for JavaScript / TypeScript](https://sap.github.io/cloud-sdk/docs/js/overview).
 We plan to increase the number of samples over time. 
