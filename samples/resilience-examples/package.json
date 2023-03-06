@@ -13,18 +13,18 @@
     "generate-client": "npx generate-odata-client --input resources/service-specs --outputDir src/generated --clearOutputDir --transpile=false --optionsPerService=resources/service-specs/options-per-service.json"
   },
   "dependencies": {
-    "@sap-cloud-sdk/odata-v2": "next",
-    "@sap-cloud-sdk/http-client": "next",
-    "@sap-cloud-sdk/connectivity": "next",
-    "@sap-cloud-sdk/util": "next",
-    "@sap-cloud-sdk/resilience": "next",
-    "@sap-cloud-sdk/generator": "next"
+    "@sap-cloud-sdk/odata-v2": "^3.0.0",
+    "@sap-cloud-sdk/http-client": "^3.0.0",
+    "@sap-cloud-sdk/connectivity": "^3.0.0",
+    "@sap-cloud-sdk/util": "^3.0.0",
+    "@sap-cloud-sdk/resilience": "^3.0.0",
+    "@sap-cloud-sdk/generator": "^3.0.0"
   },
   "devDependencies": {
     "@types/jest": "^27.4.0",
     "@typescript-eslint/eslint-plugin": "^5.21.0",
     "@typescript-eslint/parser": "^5.33.1",
-    "@sap-cloud-sdk/eslint-config": "next",
+    "@sap-cloud-sdk/eslint-config": "^3.0.0",
     "eslint": "^8.30.0",
     "eslint-config-prettier": "^8.0.0",
     "eslint-plugin-header": "^3.0.0",
