@@ -44,7 +44,7 @@
     "@nestjs/cli": "^9.3.0",
     "@nestjs/schematics": "^9.1.0",
     "@nestjs/testing": "^8.4.7",
-    "@sap-cloud-sdk/test-util": "^3.0.2",
+    "@sap-cloud-sdk/test-util": "^3.1.0",
     "@types/express": "^4.17.17",
     "@types/jest": "29.5.0",
     "@types/node": "^18.15.11",
