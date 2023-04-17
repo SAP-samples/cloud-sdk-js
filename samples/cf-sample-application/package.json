@@ -25,9 +25,9 @@
     "generate-client": "npx generate-odata-client --input resources/service-specs --outputDir src/generated --optionsPerService=resources/service-specs/options-per-service.json --clearOutputDir --transpile=false"
   },
   "dependencies": {
-    "@nestjs/common": "9.1.6",
-    "@nestjs/core": "9.1.6",
-    "@nestjs/platform-express": "9.1.6",
+    "@nestjs/common": "9.4.0",
+    "@nestjs/core": "9.4.0",
+    "@nestjs/platform-express": "9.4.0",
     "@sap-cloud-sdk/connectivity": "^3.0.0",
     "@sap-cloud-sdk/odata-v2": "^3.0.0",
     "@sap/xsenv": "3.4.0",
@@ -40,8 +40,8 @@
   },
   "devDependencies": {
     "@nestjs/cli": "9.4.0",
-    "@nestjs/schematics": "9.0.3",
-    "@nestjs/testing": "9.1.6",
+    "@nestjs/schematics": "9.1.0",
+    "@nestjs/testing": "9.4.0",
     "@sap-cloud-sdk/test-util": "^3.0.0",
     "@sap-cloud-sdk/generator": "^3.0.0",
     "@types/express": "4.17.17",
