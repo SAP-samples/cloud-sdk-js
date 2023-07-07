@@ -1,13 +1,13 @@
 1. These routes were created with this chart:
-{{- if .Values.ingress.enabled }}
-  {{- if .Values.ingress.shortRoute }}
-  - https://{{ .Values.ingress.shortRoute }}
+{{- if .Values.expose.enabled }}
+  {{- if .Values.expose.ingress.shortRoute }}
+  - https://{{ .Values.expose.ingress.shortRoute }}
   {{- end }}
-  {{- if .Values.ingress.exposedRoute }}
-  - https://{{ .Values.ingress.exposedRoute }}
+  {{- if .Values.expose.ingress.exposedRoute }}
+  - https://{{ .Values.expose.ingress.exposedRoute }}
   {{- end }}
-  {{- if .Values.ingress.connectivityProxyRoute }}
-  - https://{{ .Values.ingress.connectivityProxyRoute }}
+  {{- if .Values.expose.ingress.connectivityProxyRoute }}
+  - https://{{ .Values.expose.ingress.connectivityProxyRoute }}
   {{- end }}
 {{- end }}
 

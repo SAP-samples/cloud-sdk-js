@@ -1,0 +1,30 @@
+{{- if and (.Values.expose.enabled) (eq .Values.expose.environment "kyma") -}}
+{{- $name := default "approuter-chart" .Values.nameOverride | trunc 63 | trimSuffix "-" -}}
+{{- $fullName := include "k8s-e2e-app-helm.fullname" . -}}
+{{- $svcName := index .Values "approuter-chart" "name" | default (printf "%s-%s-svc" .Release.Name $name) | trunc 63 | trimSuffix "-" | quote -}}
+{{- $svcPort := dig "approuter-chart" "service" "port" 8080 (.Values | merge (dict)) -}}
+
+apiVersion: gateway.kyma-project.io/v1beta1
+kind: APIRule
+metadata:
+  name: {{ $fullName }}-api-rule
+  labels:
+    {{- include "k8s-e2e-app-helm.labels" . | nindent 4 }}
+spec:
+  gateway: kyma-gateway.kyma-system.svc.cluster.local
+  host: {{ index .Values.expose "api-rule" "host" }}
+  service:
+    name: {{ $svcName }}
+    port: {{ $svcPort }}
+  rules:
+    - path: /.*
+      methods:
+        - GET
+        - POST
+        - DELETE
+      mutators: []
+      accessStrategies:
+        - handler: noop
+          config: {}
+
+{{- end }}

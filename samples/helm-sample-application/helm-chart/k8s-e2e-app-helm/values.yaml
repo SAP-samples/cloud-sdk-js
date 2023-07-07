@@ -14,9 +14,12 @@ approuter-chart:
   xsuaaBinding:
   imagePullSecrets:
   - name: 
-ingress:
+expose:
   enabled: 
-  environment: 
-  shortRoute: 
-  exposedRoute: 
-  connectivityProxyRoute: 
+  environment:
+  ingress:
+    shortRoute: 
+    exposedRoute: 
+    connectivityProxyRoute: 
+  api-rule:
+    host:

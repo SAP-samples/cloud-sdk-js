@@ -1,5 +1,5 @@
 image:
-  repository: docker-cloudsdk.docker.repositories.sap.ondemand.com/k8s-e2e-app
+  repository: docker-cloudsdk.common.repositories.cloud.sap/k8s-e2e-app
   tag: latest
 resources:
   requests:
