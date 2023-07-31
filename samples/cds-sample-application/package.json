@@ -40,7 +40,7 @@
     "@sap-cloud-sdk/odata-v2": "^3.4.0"
   },
   "devDependencies": {
-    "@sap-cloud-sdk/generator": "^3.3.0",
+    "@sap-cloud-sdk/generator": "^3.4.0",
     "@nestjs/cli": "^10.1.11",
     "@nestjs/schematics": "^10.0.1",
     "@nestjs/testing": "^8.4.7",
