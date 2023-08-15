@@ -1,5 +1,5 @@
-{{- if .Values.ingress.enabled -}}
-{{- if and (eq .Values.ingress.environment "generic") (not .Values.ingress.name) -}}
+{{- if .Values.expose.enabled -}}
+{{- if and (eq .Values.expose.environment "generic") (not .Values.expose.name) -}}
 apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
 metadata:
@@ -9,11 +9,11 @@ spec:
     # You must replace this email address with your own.
     # Let's Encrypt will use this to contact you about expiring
     # certificates, and issues related to your account.
-    email: {{ .Values.ingress.issuer.email | quote }}
+    email: {{ .Values.expose.ingress.issuer.email | quote }}
     server: https://acme-v02.api.letsencrypt.org/directory
     privateKeySecretRef:
       # Secret resource that will be used to store the account's private key.
-      name: {{ .Values.ingress.issuer.privateKeySecretRef | default "tls-private-key" | quote }}
+      name: {{ .Values.expose.ingress.issuer.privateKeySecretRef | default "tls-private-key" | quote }}
     # Add a single challenge solver, HTTP01 using nginx
     solvers:
     - http01:

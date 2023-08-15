@@ -14,7 +14,7 @@ If you want to locally trigger the e2e-tests, create a `cypress.env.json` file i
 
 ```
 {
-  "user": "username",
+  "username": "username",
   "password": "password"
   "url": "url"
 }
