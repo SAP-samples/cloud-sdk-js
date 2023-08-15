@@ -20,8 +20,8 @@
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "ci-build": "echo \"Use this to compile or minify your application\"",
     "deploy": "npm run build && cf push",
-    "deploy:docker": "npm run build && docker build -t docker-cloudsdk.docker.repositories.sap.ondemand.com/k8s-e2e-app:latest . && docker push docker-cloudsdk.docker.repositories.sap.ondemand.com/k8s-e2e-app:latest",
-    "deploy:pipeline": "docker build -t docker-cloudsdk.docker.repositories.sap.ondemand.com/sdkjs-k8s-pipeline:latest ./pipeline && docker push docker-cloudsdk.docker.repositories.sap.ondemand.com/sdkjs-k8s-pipeline:latest",
+    "deploy:docker": "npm run build && docker build -t docker-cloudsdk.common.repositories.cloud.sap/k8s-e2e-app:latest . && docker push docker-cloudsdk.common.repositories.cloud.sap/k8s-e2e-app:latest",
+    "deploy:pipeline": "docker build -t docker-cloudsdk.common.repositories.cloud.sap/sdkjs-k8s-pipeline:latest ./pipeline && docker push docker-cloudsdk.common.repositories.cloud.sap/sdkjs-k8s-pipeline:latest",
     "generate-client": "npx generate-odata-client --input resources/service-specs --outputDir src/generated --optionsPerService=resources/service-specs/options-per-service.json --clearOutputDir --transpile=false"
   },
   "dependencies": {

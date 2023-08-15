@@ -8,6 +8,6 @@
     "start": "node node_modules/@sap/approuter/approuter.js",
     "package": "./package.sh",
     "deploy": "npm run package && cf push",
-    "deploy:docker": "docker build -t docker-cloudsdk.docker.repositories.sap.ondemand.com/k8s-approuter:latest . && docker push docker-cloudsdk.docker.repositories.sap.ondemand.com/k8s-approuter:latest"
+    "deploy:docker": "docker build -t docker-cloudsdk.common.repositories.cloud.sap/k8s-approuter:latest . && docker push docker-cloudsdk.common.repositories.cloud.sap/k8s-approuter:latest"
   }
 }
