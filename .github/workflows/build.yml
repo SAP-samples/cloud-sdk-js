@@ -23,7 +23,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node-version: [18.x]
+        node-version: [22]
     steps:
       - uses: actions/checkout@v4
       - run: git fetch --depth=1
