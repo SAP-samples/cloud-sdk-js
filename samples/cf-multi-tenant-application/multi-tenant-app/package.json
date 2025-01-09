@@ -13,13 +13,13 @@
     "@sap-cloud-sdk/util": "^3.0.0",
     "@sap-cloud-sdk/connectivity": "^3.0.0",
     "@sap-cloud-sdk/http-client": "^3.0.0",
-    "@types/node": "^16.0.0",
+    "@types/node": "^22.0.0",
     "ts-node": "^10",
-    "typescript": "^4"
+    "typescript": "~5.7.2"
   },
   "devDependencies": {},
   "engines": {
-    "node": "^16.0.0",
-    "npm": "^8.0.0"
+    "node": "^20.0.0",
+    "npm": "^10.0.0"
   }
 }
