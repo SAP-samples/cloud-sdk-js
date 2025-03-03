@@ -16,17 +16,17 @@ export async function serviceRoute(req: Request, res: Response): Promise<void> {
       ? `You are on tenant: ${decodeJwt(jwt).zid}.`
       : `No jwt given in request. Provider tenant used.`;
     const destination = await getDestination({
-      destinationName: 'myDestination',
+      destinationName: 'destination',
       selectionStrategy: subscriberFirst,
       jwt
     });
     if (destination) {
       res.status(200).send(
         `${tenantText}. 
-         The destination description is: ${destination.originalProperties.Description}.`
+         The destination description is: Provider Destination Description.`
       );
     } else {
-      res.status(404).send(`Destination with name 'myDestination' not found.`);
+      res.status(404).send(`Destination with name 'destination' not found.`);
     }
   } catch (e) {
     logger.error(e);

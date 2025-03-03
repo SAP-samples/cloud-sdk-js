@@ -1,7 +1,0 @@
-{
-  "resources/service-specs/API_BUSINESS_PARTNER.edmx": {
-    "packageName": "cloud-business-partner-service",
-    "directoryName": "cloud-business-partner-service",
-    "basePath": "/sap/opu/odata/sap/API_BUSINESS_PARTNER"
-  }
-}
