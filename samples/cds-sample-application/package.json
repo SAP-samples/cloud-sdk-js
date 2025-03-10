@@ -37,7 +37,7 @@
     "reflect-metadata": "^0.1.14",
     "rimraf": "^6.0.1",
     "rxjs": "^7.8.2",
-    "@sap-cloud-sdk/odata-v2": "^3.25.0"
+    "@sap-cloud-sdk/odata-v2": "^4.0.1"
   },
   "devDependencies": {
     "@sap-cloud-sdk/generator": "^3.25.0",
