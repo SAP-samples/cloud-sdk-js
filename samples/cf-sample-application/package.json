@@ -28,7 +28,7 @@
     "@nestjs/common": "^9.4.3",
     "@nestjs/core": "^9.4.3",
     "@nestjs/platform-express": "^9.4.3",
-    "@sap-cloud-sdk/connectivity": "^3.0.0",
+    "@sap-cloud-sdk/connectivity": "^4.0.0",
     "@sap-cloud-sdk/odata-v2": "^3.0.0",
     "@sap/xsenv": "^3.4.0",
     "@sap/xssec": "^3.2.17",
