@@ -49,7 +49,7 @@
     "@types/jest": "29.5.14",
     "@types/node": "^22.13.9",
     "@types/supertest": "^6.0.2",
-    "@typescript-eslint/eslint-plugin": "^5.62.0",
+    "@typescript-eslint/eslint-plugin": "^8.31.1",
     "@typescript-eslint/parser": "^5.62.0",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^10.1.1",
