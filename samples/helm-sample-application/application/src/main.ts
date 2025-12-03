@@ -1,11 +1,11 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-import { JWTStrategy } from '@sap/xssec';
+import { XssecPassportStrategy } from '@sap/xssec';
 import { getServices } from '@sap/xsenv';
 import * as passport from 'passport';
 
 const xsuaa = getServices({ xsuaa: { name: 'operator-xsuaa-service' } }).xsuaa;
-passport.use(new JWTStrategy(xsuaa));
+passport.use(new XssecPassportStrategy(xsuaa));
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);

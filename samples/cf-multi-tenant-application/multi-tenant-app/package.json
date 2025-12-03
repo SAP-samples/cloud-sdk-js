@@ -4,18 +4,19 @@
   "description": "Example application using the SAP Cloud SDK for JavaScript.",
   "scripts": {
     "start": "node -r ts-node/register --inspect src/server.ts",
-    "debug": "node -r ts-node/register --inspect-brk src/server.ts"
+    "debug": "node -r ts-node/register --inspect-brk src/server.ts",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "express": "^4",
-    "@sap/xsenv": "^3.3.2",
+    "express": "^5",
+    "@sap/xsenv": "^6.0.0",
     "cfenv": "^1.2.4",
-    "@sap-cloud-sdk/util": "^3.0.0",
-    "@sap-cloud-sdk/connectivity": "^3.0.0",
-    "@sap-cloud-sdk/http-client": "^3.0.0",
-    "@types/node": "^22.0.0",
+    "@sap-cloud-sdk/util": "^4.2.0",
+    "@sap-cloud-sdk/connectivity": "^4.2.0",
+    "@sap-cloud-sdk/http-client": "^4.2.0",
+    "@types/node": "^24.10.1",
     "ts-node": "^10",
-    "typescript": "~5.7.2"
+    "typescript": "~5.9.3"
   },
   "devDependencies": {},
   "engines": {

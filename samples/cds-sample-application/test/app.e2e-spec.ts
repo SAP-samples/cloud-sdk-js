@@ -16,26 +16,25 @@ describe('AppController (e2e)', () => {
 
     app = moduleFixture.createNestApplication();
     await cds.connect.to('db');
-    await cds
-    .serve('all')
-    .in(app);
+    await cds.serve('all').in(app.getHttpAdapter().getInstance());
+
     await app.init();
 
-    setTestDestination({ 
+    setTestDestination({
       name: 'myDestinationName',
       url: 'https://my-destination-url.com',
-      isTestDestination: true
+      isTestDestination: true,
     });
   });
 
   it('tests service handler implementation', () => {
-    nock('https://my-destination-url.com')
-      .get(/.*/)
-      .reply(200);
+    nock('https://my-destination-url.com').get(/.*/).reply(200, []);
 
     return request(app.getHttpServer())
-      .get('/bupa/getAll()')
+      .get('/odata/v4/bupa/getAll()')
       .expect(200)
-      .expect({"@odata.context":"$metadata#CapBusinessPartner","value":[]});
+      .expect((res) => {
+        expect(res.body).toMatchObject({ value: [] });
+      });
   });
 });
