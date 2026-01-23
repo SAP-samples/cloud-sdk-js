@@ -106,7 +106,7 @@ describe('resilience', () => {
         },
         { method: 'get', middleware: [loggingMiddleware()] }
       )
-    ).rejects.toThrowError(/403/);
+    ).rejects.toThrow(/403/);
     expect(logSpy).toHaveBeenCalledWith(
       'The user Peter is not authorized to do the request.'
     );
@@ -132,7 +132,7 @@ describe('resilience', () => {
         },
         { method: 'get', middleware: [retry(), loggingMiddleware()] }
       )
-    ).rejects.toThrowError(/403/);
+    ).rejects.toThrow(/403/);
     expect(mock.isDone()).toBe(false);
     nock.cleanAll();
   });
